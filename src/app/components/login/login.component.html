@@ -1,0 +1,26 @@
+<div class = "fondo">
+  <div class = "divLogin">
+    <form [formGroup] = "loginForm" class="formLogin">
+      <h1>Clinica Online - Ingresar</h1>
+
+      <mat-form-field appearance = "outline">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName = "email" placeholder="Ingrese Correo">
+      </mat-form-field>
+
+      <mat-form-field appearance = "outline">
+        <mat-label>Clave</mat-label>
+        <input matInput formControlName = "password" placeholder="Ingrese Clave">
+      </mat-form-field>
+
+      <p>
+      <button mat-raised-button color = "primary" (click)="OnSubmitLogin()">Entrar</button>
+      <button mat-raised-button routerLink = "/register" color = "primary">Registrarse</button>
+      </p>
+
+      <mat-form-field appearance = "outline">
+        <mat-select placeholder = "Inicio Rapido"></mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+</div>
