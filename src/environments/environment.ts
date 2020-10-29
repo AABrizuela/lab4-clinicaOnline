@@ -4,15 +4,14 @@
 
 export const environment = {
   production: false,
-  firebaseConfig:{
-    apiKey: "AIzaSyBlU-lAX4IMASwSlLRjiPrjsPgMQf5rkyw",
-    authDomain: "clinica-online-f8f32.firebaseapp.com",
-    databaseURL: "https://clinica-online-f8f32.firebaseio.com",
-    projectId: "clinica-online-f8f32",
-    storageBucket: "clinica-online-f8f32.appspot.com",
-    messagingSenderId: "842592483897",
-    appId: "1:842592483897:web:4e7bb3ec5130997cd8ebe8",
-    measurementId: "G-7XGHVSVGV3"
+  firebaseConfig: {
+    apiKey: 'AIzaSyC39PYSCfPqhMSMnIzfClq6ljPgA8awwmM',
+    authDomain: 'lab4-clinicaonline.firebaseapp.com',
+    databaseURL: 'https://lab4-clinicaonline.firebaseio.com',
+    projectId: 'lab4-clinicaonline',
+    storageBucket: 'lab4-clinicaonline.appspot.com',
+    messagingSenderId: '267797208140',
+    appId: '1:267797208140:web:7d7cbd0f52bfa569c2e8e9'
   }
 };
 
