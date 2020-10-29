@@ -1,0 +1,176 @@
+$rojo: #fa2424;
+
+*{
+    font-family: 'coolvetica strong';
+}
+
+div.container{
+    width: 100vw;
+    height: 100vh;
+    background: none;
+}
+
+div.optNavBar{
+    font-size: 1.5em;
+    width: 25%;
+}
+
+div.bienvenida {
+    font-size: 2.5em;
+    padding-left: 5%;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.seleccion {
+    height: 70%;
+    width: 40%;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 2px #fa2424;
+    border-radius: 5px;
+    flex-flow: column;
+    align-items: center;
+    background: white;
+}
+
+div.subtitle {
+    font-size: 2.5em;
+    border-bottom: solid 2px #fa2424;
+    width: 100%;
+    background: #fa2424;
+    color: white;
+    text-align: center;
+}
+
+div.botones {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+button.seleccion {
+    width: 70%;
+    height: 25%;
+    margin: 5%;
+    font-family: 'coolvetica strong';
+    border: solid 2px #fa2424;
+    font-size: 2em;
+}
+
+div.conjunto {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.cuerpo {
+    height: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    background: white;
+    border: solid 2px red;
+    border-radius: 5px;
+    height: 80%;
+    width: 38%;
+}
+
+.dias {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle {
+    font-size: 2.8em;
+    color: white;
+    background: red;
+    text-align: center;
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido {
+    height: 88%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.checkDia {
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+}
+
+span.tituloDias {
+    font-size: 2em;
+    margin-bottom: 3%;
+}
+
+input[type='checkbox'] {
+    margin-right: 4px;
+}
+
+label {
+    margin: 3px;
+}
+
+div.desdeHasta {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.desde {
+    width: 50%;
+}
+
+span.desdeTitulo {
+    margin-right: 5%;
+}
+
+button{
+    width: 30%;
+    height: 100%;
+    font-size: 1em;
+    text-align: center;
+}
+
+.boton {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 5vh;
+}
+
+span {
+    margin-right: 8px;
+}
+
+input#duracion {
+    width: 16%;
+    text-align: center;
+    font-size: 0.7em;
+}

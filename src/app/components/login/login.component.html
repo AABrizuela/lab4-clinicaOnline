@@ -1,26 +1,43 @@
-<div class = "fondo">
-  <div class = "divLogin">
-    <form [formGroup] = "loginForm" class="formLogin">
-      <h1>Clinica Online - Ingresar</h1>
-
-      <mat-form-field appearance = "outline">
-        <mat-label>Correo</mat-label>
-        <input matInput formControlName = "email" placeholder="Ingrese Correo">
-      </mat-form-field>
-
-      <mat-form-field appearance = "outline">
-        <mat-label>Clave</mat-label>
-        <input matInput formControlName = "password" placeholder="Ingrese Clave">
-      </mat-form-field>
-
-      <p>
-      <button mat-raised-button color = "primary" (click)="OnSubmitLogin()">Entrar</button>
-      <button mat-raised-button routerLink = "/register" color = "primary">Registrarse</button>
-      </p>
-
-      <mat-form-field appearance = "outline">
-        <mat-select placeholder = "Inicio Rapido"></mat-select>
-      </mat-form-field>
-    </form>
-  </div>
+<div class="fondo"></div>
+<div class="container">
+    <div class="formulario">
+        <div class="formIzq">
+        </div>
+        <div class="formDer">
+            <div class="titulo">
+                <span>Ingreso</span>
+            </div>
+            <form (ngSubmit)="ingresar()" class="ingreso">
+                <div class="usuario textos">
+                    <span class="usuario">E-Mail</span>
+                    <input type="text" id="email" class="datos" autocomplete="off" maxlength="30">
+                    <div hidden class="error" id="errorEmail"><span class="error" id="spanEmail"></span></div>
+                </div>
+                <div class="contrasena textos">
+                    <span class="contrasena">Contraseña</span>
+                    <input type="password" id="contrasena" class="datos" maxlength="20">
+                    <div hidden class="error" id="errorPass"><span class="error" id="spanPass"></span></div>
+                </div>
+                <div class="spinner-container" id="spinner">
+                    <div class="spinner-items"><div></div></div>
+                </div>
+                <div class="botones" id="botones">
+                    <button type="button" routerLink="/registro"> 
+                        Registrarme
+                    </button>
+                    <button type="submit">
+                        Ingresar
+                    </button>
+                    <div class="dropdown">
+                        <img src="../../../assets/usuDefault.png" class="iconDrop" alt="Imagen ilustrativa de usuario">
+                        <div class="dropdown-content">
+                        <div class="option" (click)="cargar('admin')">admin</div>
+                        <div class="option" (click)="cargar('profesional')">profesional</div>
+                        <div class="option" (click)="cargar('paciente')">paciente</div>
+                        </div>
+                      </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

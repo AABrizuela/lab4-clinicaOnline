@@ -1,0 +1,59 @@
+<div class="cnt-paciente">
+    <div class="cnt-pedir-turno">
+        <div class="title">
+            <h1>Pedir Turno</h1>
+        </div>
+        <div class="button-filter">
+            <button (click)="filtrarApellido()">Apellido</button>
+            <button (click)="filtrarEspecialidades()">Especialidad</button>
+            <button (click)="filtrarSemana()">Semana</button>
+        </div>
+        <div class="cnt-form">
+            <div class="listado-apellido" *ngIf="this.listadoMostrar == 'listado-apellido'">
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Especialidades</th>
+                    </tr>
+                    <tr *ngFor="let profesional of this.profesionales | listaHabilitados" (dblclick)="profParaSacarTurno(profesional)">
+                        <td>{{profesional.nombre}}</td>
+                        <td>{{profesional.apellido}}</td>
+                        <td>{{profesional.especialidades}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="listado-especialidad" *ngIf="this.listadoMostrar == 'listado-especialidades'">
+                    <table *ngFor="let especialidad of this.especialidades">
+                        <h1>{{especialidad.nombre}}</h1>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Especialidades</th>
+                        </tr>
+                        <tr *ngFor="let profesional of especialidad.profesionales | listaHabilitados">
+                            <td>{{profesional.nombre}}</td>
+                            <td>{{profesional.apellido}}</td>
+                            <td>{{profesional.especialidades}}</td>
+                        </tr>
+                    </table>
+            </div>
+            <div class="listado-semana" *ngIf="this.listadoMostrar == 'listado-semana'">
+                <table *ngFor="let dia of this.semana">
+                    <h1>{{dia.dia}}</h1>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Especialidades</th>
+                    </tr>
+                    <tr *ngFor="let profesional of dia.profesionales | listaHabilitados">
+                        <td>{{profesional.nombre}}</td>
+                        <td>{{profesional.apellido}}</td>
+                        <td>{{profesional.especialidades}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+ 

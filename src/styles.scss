@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+$rojo: #fa2424;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'coolvetica strong';
+}
+
+@font-face{
+    font-family: 'coolvetica soft';
+    src: url('./assets/fonts/coolvetica crammed rg.ttf');
+}
+@font-face{
+    font-family: 'coolvetica strong';
+    src: url('./assets/fonts/coolvetica condensed rg.ttf');
+}
+body{
+    margin: 0;
+}
+
+.material-icons{
+    font-family: 'Material Icons';
+}
+
+button {
+    border-radius: 10px;
+    border: solid 1px $rojo;
+    cursor: pointer;
+    outline: none;
+    background: white
+}
+
+button:hover{
+    background: #fa2424;
+    transform: scale(1.1);
+    color: white;
+}
+
+input:hover, input:focus{
+    background: #fa2424;
+    transform: scale(1.1);
+    color: white;
+}
+
+div.navBar{
+    height: 8%;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-bottom: solid 1.4px #fa2424;
+    justify-content: space-between;
+}
+
+div.optNavBar {
+    border-right: solid 1.4px #fa2424;
+    border-left: solid 1.4px #fa2424;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 10%;
+    justify-content: center;
+}
+
+div.optNavBar:hover{
+    background: #fa2424;
+    color: white;
+    cursor: pointer;
+}
+
+div.fondo{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./assets/fondo.jpg');
+    background-size: cover;
+    z-index: -1;
+    filter: blur(3px);
+    position: absolute;
+}
+
+span.noHabilitado{
+    border: solid 1px red;
+    border-radius: 5px;
+    background: white;
+}

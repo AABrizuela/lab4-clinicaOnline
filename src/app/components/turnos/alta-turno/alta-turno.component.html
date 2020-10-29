@@ -1,0 +1,75 @@
+<div class="fondo"></div>
+<div class="container">
+    <div class="navBar">
+        <div class="bienvenida">
+            <span class="bienvenida">Horarios</span>
+        </div>
+        <div class="conjunto">
+            <div class="optNavBar">
+                <span class="nombreOptNavBar">{{user.email}}</span>
+            </div>
+            <div class="optNavBar" routerLink="/home/profesional">
+                <span class="nombreOptNavBar">Inicio</span>
+            </div>    
+            <div class="optNavBar" (click)="logout()">
+                <span class="nombreOptNavBar">Cerrar Sesión</span>
+            </div>    
+        </div>
+    </div>
+    <div class="cuerpo">
+        <form ngNativeValidate (ngSubmit)="guardar()">
+            <div class="tittle">
+                <span>Seleccione los días y el horario laboral</span>
+            </div>
+            <div class="contenido">
+                <div class="dias">
+                    <span class="tituloDias">Dias laborales</span>
+                    <div class="checkDia">
+                        <label><input type="checkbox" checked id="lunes">Lunes</label>
+                        <label><input type="checkbox" id="martes">Martes</label>
+                        <label><input type="checkbox" id="miercoles">Miércoles</label>
+                        <label><input type="checkbox" id="jueves">Jueves</label>
+                        <label><input type="checkbox" id="viernes">Viernes</label>
+                        <label><input type="checkbox" id="sabado" (change)="eligioSabado()">Sábado</label>    
+                    </div>        
+                </div>
+                <div class="dias">
+                    <span class="tituloDias">Horarios</span>
+                    <div class="horarios">
+                        <div class="desdeHasta">
+                            <div class="desde">
+                                <span class="desdeTitulo">Desde: </span>
+                                <input type="time" id="horaDesde" required min="08:00" max="18:30">    
+                            </div>
+                            <div class="desde">
+                                <span class="desdeTitulo"> Hasta: </span>
+                                <input type="time" id="horaHasta" required min="8:30" max="19:00">          
+                            </div>
+                        </div>
+                        <div class="duracion">
+                            <span>¿Cuánto durarán sus turnos?</span>
+                            <input type="number" id="duracion" value=30 min=10>            
+                        </div>    
+                    </div>
+                </div>
+                <div *ngIf="sabado" class="dias">
+                    <span class="tituloDias">Horario de sabados</span>
+                    <div class="desdeHasta">
+                        <div class="desde">
+                            <span class="desdeTitulo">Desde: </span>
+                            <input type="time" id="horaSabDesde" required min="8:00" max="13:30">
+                        </div>
+                        <div class="desde">
+                            <span class="desdeTitulo"> Hasta: </span>
+                            <input type="time" id="horaSabHasta" required min="8:30" max="14:00">        
+                        </div>
+                    </div>
+                </div>
+                <div class="boton">
+                    <button type="submit">Guardar</button>
+                </div>
+    
+            </div>
+    </form>
+    </div>
+</div>

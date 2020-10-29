@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="titulo">
+        <span>Pedir Turno</span>
+    </div>
+    <div class="cuerpo">
+        <form ngNativeValidate (ngSubmit)="validarTurnosDisponibles()">
+            <div class="infoMedico">
+                <div class="infoColumn nombre">
+                    <span class="titulosNombre">Nombre</span>
+                    <span>{{profesionalSeleccionado.nombre}}</span>
+                    <span class="titulosNombre">Apellido</span>
+                    <span>{{profesionalSeleccionado.apellido}}</span>
+                    <span class="titulosNombre">Especialidades</span>
+                    <span>{{profesionalSeleccionado.especialidades}}</span>
+                </div>
+                <div class="infoColumn nombre">
+                    <span class="dia">Días que atiende</span>
+                    <div class="cadaDia" *ngFor="let dia of profesionalSeleccionado.atencion">
+                        <div class="dia">
+                            <span>{{dia.dia}}</span>
+                        </div>
+                        <div class="tiempo">
+                            <span>Desde {{dia.desde}}</span>
+                            <span> - Hasta {{dia.hasta}}</span>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fechas">
+                <select id="h-p-select" (change)="cambiarHorarios()" required>
+                    <option hidden selected>Selecciona el día</option>
+                    <option *ngFor="let dia of profesionalSeleccionado.atencion">{{dia.dia}}</option>
+                </select>
+                <select id="selectEsp" required (change)="cambiarEspecialidad()">
+                    <option hidden selected>Selecciona la especialidad</option>
+                    <option *ngFor="let esp of profesionalSeleccionado.especialidades">{{esp}}</option>
+                </select>
+                <input type="date" id="fecha" (change)="diaSemana()" name="inptDate" [(ngModel)]="fechaSeleccionada" required>
+                <input type="time" id="hora" required name="inptTime" [(ngModel)]="horaSeleccionada">
+            </div>
+            <div id="divError" class="error" hidden>
+                <span id="error"></span>
+            </div>
+            <div class="botones">
+                <button id="boton" type="submit">Pedir</button>
+            </div>
+        </form>
+    </div>
+</div>

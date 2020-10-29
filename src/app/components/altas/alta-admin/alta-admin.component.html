@@ -1,0 +1,48 @@
+<div class="fondo"></div>
+<div class="container">
+<div class="navBar">
+    <div class="bienvenida">
+        <span class="bienvenida">Registro de Administrador</span>
+    </div>
+    <div class="conjunto">
+        <div class="optNavBar">
+            <span class="nombreOptNavBar">{{user.email}}</span>
+        </div>
+        <div class="optNavBar" routerLink="/home/admin">
+            <span class="nombreOptNavBar">Volver a Inicio</span>
+        </div>    
+        <div class="optNavBar" (click)="logout()">
+            <span class="nombreOptNavBar">Cerrar Sesión</span>
+        </div>    
+    </div>
+</div>
+<div class="seleccion">
+        <form (ngSubmit)="registrar()" class="registro">
+            <div class="row carga">
+                <div class="datosUsuario">
+                    <div class="usuario textos">
+                        <span class="usuario">E-Mail</span>
+                        <input type="text" id="email" class="datos" autocomplete="off" maxlength="30">
+                        <div hidden class="error" id="errorEmailAdmin"><span class="error" id="spanEmailAdmin"></span></div>
+                    </div>
+                    <div class="contrasena textos">
+                        <span class="contrasena">Contraseña</span>
+                        <input type="password" id="contrasena" class="datos" maxlength="20">
+                        <div hidden class="error" id="errorPassAdmin"><span class="error" id="spanPassAdmin"></span></div>
+                    </div>
+                </div>
+    
+            </div>
+            <div class="row envio">
+                <div class="botones">
+                    <button type="submit">Registrar Administrador</button>    
+                </div>
+            </div>
+        </form>
+</div>
+
+    
+</div>
+
+
+

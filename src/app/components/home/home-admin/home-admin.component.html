@@ -1,0 +1,25 @@
+<div class="fondo"></div>
+<div class="container">
+    <div class="navBar">
+        <div class="bienvenida">
+            <span class="bienvenida">Inicio de Administrador</span>
+        </div>
+        <div class="conjunto">
+            <div class="optNavBar">
+                <span class="nombreOptNavBar">{{user.email}}</span>
+            </div>
+            <div class="optNavBar" (click)="logout()">
+                <span class="nombreOptNavBar">Cerrar Sesión</span>
+            </div>    
+        </div>
+    </div>
+
+    <div class="seleccion">
+        <div class="subtitle"><span class="subtitle">Seleccione qué desea realizar...</span></div>
+        <div class="botones">
+            <button class="seleccion" routerLink="/admin/registro">Registrar nuevo administrador</button>
+            <button class="seleccion" routerLink="/admin/habilitar_profesional">Habilitar profesional</button>
+            <button class="seleccion" routerLink="/admin/especialidades_profesional">Agregar especialidad a profesional</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,191 @@
+div.container{
+    width: 100vw;
+    height: 100vh;
+    background: none;
+}
+
+div.formulario{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 65%;
+    height: 75%;
+
+    display: flex;
+}
+
+div.formIzq, div.formDer{
+    flex: 50%;
+
+    border: solid 1.5px #fa2424
+}
+
+div.formIzq{
+    border-bottom-left-radius: 5%;
+    border-top-left-radius: 5%;
+    border-right: none;
+
+    background: url('../../../assets/imagenLogin.jpg');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.formDer{
+    background: white;
+    border-bottom-right-radius: 5%;
+    border-top-right-radius: 5%;
+    border-left: none;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+div.titulo {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    font-size: 4.5em;
+    font-family: 'coolvetica strong';
+}
+
+form.ingreso {
+    display: flex;
+    flex-flow: column;
+    height: 80%;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 2.6em;
+    font-family: 'coolvetica strong';
+}
+
+.textos {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    justify-content: space-evenly;
+}
+
+div.botones{
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+    height: 10%;
+}
+
+.datos {
+    width: 65%;
+    height: 40%;
+    border-radius: 10px;
+    border: solid 1px #fa2424;
+    outline: none;
+    text-align: center;
+}
+
+button{
+    width: 35%;
+    font-size: 0.65em;
+    font-family: 'coolvetica strong';
+}
+
+div.error {
+    background: #ff3d3d;
+    width: 65%;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+span.error {
+    font-size: 0.5em;
+    text-align: center;
+}
+
+/*#region spinner*/
+@keyframes spinner-items {
+    0% { transform: translate(-50%,-50%) rotate(0deg); }
+    100% { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+  .spinner-items div {
+    position: absolute;
+    width: 67.25999999999999px;
+    height: 67.25999999999999px;
+    border: 5.8999999999999995px solid #fa2424;
+    border-top-color: transparent;
+    border-radius: 50%;
+  }
+  .spinner-items div {
+    animation: spinner-items 0.689655172413793s linear infinite;
+    top: 59px;
+    left: 59px
+  }
+  .spinner-container {
+    width: 118px;
+    height: 118px;
+    display: none;
+    overflow: hidden;
+    background: none;
+  }
+  .spinner-items {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0;
+  }
+  .spinner-items div { box-sizing: content-box; }
+/*#endregion*/
+
+.dropdown {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 6px 11px;
+    z-index: 1;
+    font-size: .6em;
+    margin-left: 8%;
+    margin-top: 4%;
+    border-radius: 5px;
+    border: solid 1px #fa2424;
+  }
+  
+  .dropdown:hover .dropdown-content {
+      cursor: pointer;
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: center;
+  }
+
+  img.iconDrop {
+    width: 116%;
+}
+
+img.iconDrop:hover {
+    cursor: pointer;
+}
+
+div.option{
+    width: 100%;
+    text-align: center;
+}
+
+div.option:hover{
+    transform: scale(1.2);
+}

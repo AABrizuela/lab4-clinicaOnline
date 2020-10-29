@@ -1,0 +1,233 @@
+$rojo: #ff3d3d;
+
+div.containerUsuario{
+    width: 100%;
+    height: 94%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+div.titulo {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    font-family: 'coolvetica strong';
+    background: #fa2424;
+    color: white;
+}
+
+form.registro {
+    display: flex;
+    flex-flow: column;
+    height: 85%;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 2em;
+    font-family: 'coolvetica strong';
+}
+
+.row{
+    display: flex;
+    width: 100%;
+}
+
+.carga{
+    height: 80%;
+}
+
+.envio{
+    height: 20%;
+}
+
+.textos {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 90%;
+    height: 20%;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+}
+
+div.botones{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+.datos {
+    width: 65%;
+    height: 40%;
+    border-radius: 10px;
+    border: solid 1px #fa2424;
+    outline: none;
+    text-align: center;
+}
+
+button{
+    width: 38%;
+    height: 60%;
+    font-size: 0.8em;
+    font-family: 'coolvetica strong';
+}
+
+div.form {
+    width: 65%;
+    height: 80%;
+    border: solid 2px #fa2424;
+    border-radius: 5px;
+    background: white;
+}
+
+div.datosUsuario {
+    flex: 33.3%;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+}
+
+div.cajaEsp{
+    flex: 33.3%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    width: 25%;
+    border: solid 2px #fa2424;
+    border-radius: 50%;
+    margin-bottom: 2%;
+}
+
+.ingreso {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.elegirFoto {
+    width: 100%;
+    height: 48%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fotos {
+    flex: 33.3%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input.especialidad {
+    margin-bottom: 2%;
+    width: 90%;
+    height: 100%;
+}
+
+input.especialidad:hover, input.especialidad:focus{
+    transform: scale(1);
+}
+
+div.especialidad{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 90%;
+    height: 41%;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+    overflow: auto;
+}
+
+div.error {
+    background: #ff3d3d;
+    width: 70%;
+    height: 80%;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+span.error {
+    font-size: 0.7em;
+    text-align: center;
+}
+
+.add{
+    cursor: pointer;
+    color: $rojo;
+    font-size: 0.9em;
+}
+
+.inptEsp {
+    width: 65%;
+    height: 19%;
+    display: flex;
+    justify-content: center;
+}
+
+button.esp{
+    width: 45%;
+    height: 25%;
+    font-size: 0.7em;
+}
+
+#divError{
+    display: none;
+}
+
+.listadoEsp {
+    overflow: auto;
+    width: 70%;
+    font-size: 0.6em;
+    height: 45%;
+    border: solid 1px $rojo;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.remove{
+    cursor: pointer;
+    color: $rojo;
+    font-size: 1em;
+}
+
+div.espItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.espItem:hover {
+    background: #ffb6b6;
+}
+
+p.titEsp {
+    border-bottom: solid 1px $rojo;
+    font-size: 1.4em;
+}
+
+#espUno:hover,:focus,:active{
+transform: scale(1);
+}
+
+span.nombreEsp {
+    margin-left: 10px;
+}

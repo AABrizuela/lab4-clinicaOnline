@@ -1,0 +1,31 @@
+<div class="fondo"></div>
+<div class="container">
+    <div class="navBar">
+        <div class="bienvenida">
+            <span class="bienvenida">Obtener Turnos</span>
+        </div>
+        <div class="conjunto">
+            <div class="optNavBar">
+                <span class="nombreOptNavBar">{{current.email}}</span>
+            </div>
+            <div class="optNavBar" routerLink="/home">
+                <span class="nombreOptNavBar">Inicio</span>
+            </div>    
+            <div class="optNavBar" (click)="logout()">
+                <span class="nombreOptNavBar">Cerrar Sesión</span>
+            </div>    
+        </div>
+    </div>
+    <div class="cuerpo">
+        <div class="column">
+            <div class="card">
+                <app-listado-profesionales (output_listado_prof)="profParaTurno = $event"></app-listado-profesionales>
+            </div>
+        </div>
+        <div class="column" *ngIf="profParaTurno">
+            <div class="card">
+                <app-pedir-turno [profesionalSeleccionado]="profParaTurno"></app-pedir-turno>
+            </div>
+        </div>
+    </div>
+</div>

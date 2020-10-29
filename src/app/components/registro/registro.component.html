@@ -1,0 +1,25 @@
+<div class="fondo"></div>
+<div class="container">
+    <div class="navBar">
+        <div class="bienvenida">
+            <span class="bienvenida">Bienvenido a la clínica online</span>
+        </div>
+        <div class="conjunto">
+            <div class="optNavBar" *ngIf="!registro" (click)="abrirRegistro('registro')">
+                <span class="nombreOptNavBar">Volver a Selección</span>
+            </div>
+            <div class="optNavBar" routerLink='/login'>
+                <span class="nombreOptNavBar">Volver al Ingreso</span>
+            </div>    
+        </div>
+    </div>
+    <div class="seleccion" *ngIf="registro">
+        <div class="subtitle"><span class="subtitle">Seleccione quién desea registrarse...</span></div>
+        <div class="botones">
+            <button class="seleccion" (click)="abrirRegistro('usuario')">Paciente</button>
+            <button class="seleccion" (click)="abrirRegistro('profesional')">Profesional</button>
+        </div>
+    </div>
+    <app-alta-usuario *ngIf="usuario"></app-alta-usuario>
+    <app-alta-profesional *ngIf="profesional"></app-alta-profesional>
+</div>

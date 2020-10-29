@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "clinica-online-f8f32": {
+      "hosting": {
+        "tpClinicaOnline": [
+          "clinica-online-f8f32"
+        ]
+      }
+    }
+  }
+}

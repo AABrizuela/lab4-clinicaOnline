@@ -1,0 +1,60 @@
+<div class="fondo"></div>
+<div class="container">
+    <div class="navBar">
+        <div class="bienvenida">
+            <span class="bienvenida">Agregar Especialidades</span>
+        </div>
+        <div class="conjunto">
+            <div class="optNavBar">
+                <span class="nombreOptNavBar">{{user.email}}</span>
+            </div>
+            <div class="optNavBar" routerLink="/home/admin">
+                <span class="nombreOptNavBar">Volver a Inicio</span>
+            </div>        
+            <div class="optNavBar" (click)="logout()">
+                <span class="nombreOptNavBar">Cerrar Sesión</span>
+            </div>    
+        </div>
+    </div>
+
+    <div class="seleccion">
+        <div class="column">
+            <div class="tabla">
+                <table class="tablita">
+                    <tr>
+                        <th>Email</th>
+                        <th>Especialidades</th>
+                    </tr>
+                    <tr *ngFor="let profesional of listado" (dblclick)="mostrarUpdate(profesional)">
+                        <td>{{profesional.email}}</td>
+                        <td >{{profesional.especialidades}}</td>
+                    </tr>
+                </table>         
+            </div>
+        </div>
+        <div class="column" *ngIf="update">
+            <div class="update">
+                <div class="tittle"><span class="title">Especialidades</span></div>
+                <div class="cuerpo">
+                    <span class="correo">{{profToUpdate.email}}</span>
+                    <div class="inptEsp">
+                        <div class="ingreso">
+                            <input type="text" id="espUno" class="datos" autocomplete="off" maxlength="20">
+                            <i class="material-icons add" (click)="agregar()">add_circle_outline</i>
+                        </div>
+                        <div class="error">
+                            <span class="error">asdsd</span>
+                        </div>
+                    </div>
+                    <div class="listadoEsp" >
+                        <p class="titEsp">Listado</p>
+                        <div class="espItem" *ngFor="let item of profToUpdate.especialidades">
+                            <span class="nombreEsp">{{item}}</span>
+                            <i class="material-icons remove" (click)="borrarEspecialidades(item)">cancel</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
