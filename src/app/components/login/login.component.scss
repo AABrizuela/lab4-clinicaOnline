@@ -16,28 +16,13 @@ div.formulario{
     display: flex;
 }
 
-div.formIzq, div.formDer{
-    flex: 50%;
-
-    border: solid 1.5px #fa2424
-}
-
-div.formIzq{
-    border-bottom-left-radius: 5%;
-    border-top-left-radius: 5%;
-    border-right: none;
-
-    background: url('../../../assets/imagenLogin.jpg');
-    background-position: bottom;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 div.formDer{
-    background: white;
-    border-bottom-right-radius: 5%;
-    border-top-right-radius: 5%;
+    background: rgba($color: white, $alpha: 0.8);
+    border-radius: 5%;
     border-left: none;
+
+    flex: 50%;
+    border: solid 1.5px #fa2424;
 
     display: flex;
     flex-flow: column;
@@ -150,7 +135,7 @@ span.error {
     justify-content: center;
     align-items: center;
   }
-  
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -164,7 +149,7 @@ span.error {
     border-radius: 5px;
     border: solid 1px #fa2424;
   }
-  
+
   .dropdown:hover .dropdown-content {
       cursor: pointer;
       display: flex;

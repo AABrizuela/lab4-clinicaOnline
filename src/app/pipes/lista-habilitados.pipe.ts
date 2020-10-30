@@ -7,6 +7,7 @@ export class ListaHabilitadosPipe implements PipeTransform {
 
   transform(value: any, ...args: unknown[]): any {
     let listaHabilitados = []
+    console.log(value);
     for (let prof of value) {
       if(prof.habilitado)
         listaHabilitados.push(prof)

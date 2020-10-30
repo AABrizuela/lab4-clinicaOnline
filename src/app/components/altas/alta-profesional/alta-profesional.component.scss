@@ -8,6 +8,7 @@ div.containerUsuario{
     align-items: center;
     overflow: hidden;
 }
+
 div.titulo {
     height: 15%;
     display: flex;
@@ -224,10 +225,15 @@ p.titEsp {
     font-size: 1.4em;
 }
 
-#espUno:hover,:focus,:active{
+#espUno:hover,:focus{
 transform: scale(1);
 }
 
 span.nombreEsp {
     margin-left: 10px;
 }
+
+// .traerFrente
+// {
+//   z-index: 10000;
+// }

@@ -39,16 +39,17 @@
                         </div>
                     </div>
                 </div>
+
                <div class="fotos">
-                   <div class="elegirFoto">
+                   <div >
                        <img [src]="fotoUno" alt="Imagen del usuario">
-                       <input type="file" accept="image/jpeg" id="fotoUno"> 
+                       <input class="traerFrente" type="file" accept="image/jpeg" id="fotoUno" placeholder="olavv">
                    </div>
                    <div class="elegirFoto">
                        <img [src]="fotoDos" alt="Imagen del usuario">
-                       <input type="file" accept="image/jpeg" id="fotoDos">
+                       <input class="traerFrente" type="file" accept="image/jpeg" id="fotoDos">
                    </div>
-               </div>    Registrarme
+               </div>
             </div>
             <div class="row envio">
                 <div class="botones">
@@ -56,7 +57,7 @@
                         <div  class="error" id="errorProf"><span class="error" id="spanProf">Correo requerido</span></div>
                     </div>
                     <div class="datosUsuario">
-                        <button type="submit"></button>    
+                        <button type="submit">Registrarme</button>
                     </div>
                 </div>
             </div>
