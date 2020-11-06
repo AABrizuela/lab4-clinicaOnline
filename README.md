@@ -6,11 +6,11 @@ _Bienvenidos a la nueva Clínica Online, donde podrás recibir atención médica
 # Comenzando 
 _Para empezar a obtener tus turnos con nuestros profesionales lo primero que debes hacer es *crearte una cuenta*_
 
-```
+
 *¿Cómo crear tu cuenta?*
 
 ![Registro Paciente](readme_assets/registro.gif)
-
+```
 1.Ve a *Registrarme*.
 2.Seleccione *Paciente*.
 3.Ingrese sus datos.
@@ -23,9 +23,9 @@ _Para adquirir un turno con nustros profesionales debes seguir los pasos a conti
 
 *¿Cómo obtener un turno?*
 
-```
-![Obtener turno](readme_assets/pedir_turno.gif)
 
+![Obtener turno](readme_assets/pedir_turno.gif)
+```
 1.Dirigete a la sección *Cartilla* 📄 _(En ella encontrarás a todos los profesionales que pueden brindarte atención)_.
 2.Selecciona al profesional que más te convenga según tu disposición horaria o la especialidad que deseas 👩🏽‍⚕️.
 3.Para finalizar selecciona la hora, la especialidad que quieres atenderte, el día y fecha que estás disponible ⏰.
@@ -37,17 +37,17 @@ _Y realizar las siguientes acciones:  - Cancelar el turno en caso de no querer s
                                       - Ver la reseña que el profesional dejó sobre la sesión
                                       - Devolverle una opinión al profesional que te atendió_
 
-```
+
 ![Mis turnos](readme_assets/mis_turnos.gif)
-```
 
 # Profesional 👩🏽‍⚕️
 # Comenzando 
 _Para empezar a realizar atención al público lo primero que debes hacer es *crearte una cuenta*_
 
 *¿Cómo crear tu cuenta?*
-```
+
 ![Registro Profesional](readme_assets/registro_Prof.gif)
+```
 1.Ve a *Registrarme*.
 2.Seleccione *Profesional*.
 3.Ingrese sus datos.
@@ -59,25 +59,25 @@ _Para que los pacientes puedan elegirlo debe especificar qué días y en qué fr
 
 
 *¿Cómo elijo mis horarios?*
-```
+
 ![Registro Profesional](readme_assets/registro_Prof.gif)
-```
+
 
 # Turnos recibidos
 _Aquí podrá ver los estados de los turnos, aceptarlos, rechazarlos, cancelarlos, ver la reseña que has dado a pacientes_
 
-```
+
 ![Turnos recibidos](readme_assets/turnos_recibidos.png)
-```
+
 
 # Atender pacientes
 _Acá es donde atenderás a los pacientes que tengas en el día_
 
-``` 
+ 
 *¿Cómo atender un paciente?*
 
 ![Atender paciente](readme_assets/atender.gif)
-
+```
 1. Seleccione el paciente que corresponda atender.
 2. Indiqué el diagnóstico del mismo-
 3- Complete la encuesta de satisfacción
