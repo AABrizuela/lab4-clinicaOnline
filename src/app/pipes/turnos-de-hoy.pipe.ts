@@ -15,7 +15,7 @@ export class TurnosDeHoyPipe implements PipeTransform {
     console.log(value)
     for(let item of value)
     {
-      if(item.fecha == today && item.estado == 'aceptado')
+      if(item.estado == 'aceptado')
       {
         this.listaDelDia.push(item);
       }
