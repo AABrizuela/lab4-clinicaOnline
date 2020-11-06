@@ -60,7 +60,7 @@ _Para que los pacientes puedan elegirlo debe especificar qué días y en qué fr
 
 *¿Cómo elijo mis horarios?*
 
-![Registro Profesional](readme_assets/registro_Prof.gif)
+![Registro Profesional](readme_assets/horarios.png)
 
 
 # Turnos recibidos
