@@ -1,0 +1,21 @@
+<div class="container-pac">
+  <div class="contain-pac">
+      <div class="fotos">
+          <img [src]="evaluarFoto(user.fotoUno)" alt="Foto uno del usuario"><img [src]="evaluarFoto(user.fotoDos)" alt="Foto dos del usuario">
+      </div>
+      <div class="info">
+          <div class="atributo">
+              <p>Nombre</p>
+              <span>{{user.nombre}}</span>
+          </div>
+          <div class="atributo">
+              <p>Apellido</p>
+              <span>{{user.apellido}}</span>
+          </div>
+          <div class="atributo">
+              <p>E-Mail</p>
+              <span>{{user.email}}</span>
+          </div>
+      </div>
+  </div>
+</div>

@@ -15,6 +15,8 @@ export class MisTurnosPacienteComponent implements OnInit {
   current
   motivoDeTurnos = false
   motivoStr
+  turnoResena = null
+  encuesta:boolean = false
 
   constructor(private router:Router,private turnosService:TurnosService, private service:AuthService) { }
 
@@ -38,7 +40,7 @@ export class MisTurnosPacienteComponent implements OnInit {
         this.turnosService.updateTurnos("turnos-pacientes", data.paciente, this.listadoTurnos);
         break;
       }
-    }  
+    }
   }
 
   botonResena(turno){
@@ -52,5 +54,20 @@ export class MisTurnosPacienteComponent implements OnInit {
   mostrarMotivo(turno){
     this.motivoDeTurnos = true
     this.motivoStr = turno.motivoCancelado
+  }
+
+  verResena(turno){
+
+
+  }
+
+  encuestaTerminada(flag){
+    if(flag){
+      this.encuesta = false
+    }
+    else{
+      this.encuesta = false
+    }
+
   }
 }

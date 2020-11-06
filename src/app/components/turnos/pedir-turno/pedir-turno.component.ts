@@ -11,6 +11,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class PedirTurnoComponent implements OnInit {
 
   @Input() profesionalSeleccionado
+  @Output() output_pedir:EventEmitter<any> = new EventEmitter<any>()
   diaSeleccionado
   dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado","domingo"];
   fechaSeleccionada
@@ -19,6 +20,7 @@ export class PedirTurnoComponent implements OnInit {
   horaSeleccionada
   current
   especialidadSeleccionada
+  error = false
 
   constructor(private turnosService:TurnosService, private service:AuthService) { }
 
@@ -41,7 +43,7 @@ export class PedirTurnoComponent implements OnInit {
     m = m.length == 1 ? '0'+m : m;
 
     return `${y}-${m}-${d}`
-  } 
+  }
 
 cambiarHorarios()
   {
@@ -64,48 +66,48 @@ cambiarHorarios()
   }
 
 	 diaSemana() {
-      let date = new Date($("#fecha").val());      
+      let date = new Date($("#fecha").val());
       let diaCalendario = this.dias[date.getDay()];
       if(diaCalendario != this.diaSeleccionado){
         $("#boton").attr('disabled', true)
-        $("#error").text("El día seleccionado no coincide con los días de atención del profesional")
-        $("#divError").removeAttr('hidden')
+        this.error = true
       }
       else{
         $("#boton").removeAttr('disabled')
-        $("#divError").attr('hidden', true)
+        this.error = false
       }
     }
-    
+
     validarTurnosDisponibles()
     {
       let flag = false;
-  
+
       this.turnosService.getTurnoProfesional(this.profesionalSeleccionado.email).then((datos:any) =>{
         this.turnosProfesional = datos;
-        
+
           for(let item of this.turnosProfesional.turnos)
           {
-            if(this.fechaSeleccionada == item.fecha && this.horaSeleccionada > this.sumarHorasMin(item.horario, this.duracion_turno) && 
+            if(this.fechaSeleccionada == item.fecha && this.horaSeleccionada > this.sumarHorasMin(item.horario, this.duracion_turno) &&
               this.horaSeleccionada < this.sumarHorasMax(item.horario, this.duracion_turno) && (item.estado != 'cancelado' || item.estado != 'atendido'))
             {
               console.log(item)
               console.log(item.fecha)
               console.log(this.fechaSeleccionada)
-  
+
               flag = true;
               break;
             }
           }
-      
-  
+
+
         if(!flag){
           this.turnosService.setTurno(this.profesionalSeleccionado.email,this.current.email, this.toJSON(this.duracion_turno))
+          this.output_pedir.emit()
         }
         else{
           console.error("No hay turnos disponibles en ese horario");
         }
-  
+
       })
     }
   sumarHorasMax(horario, duracion:number)
@@ -115,15 +117,15 @@ cambiarHorarios()
       let horas:number = Number.parseInt(horario.split(":")[0]);
       let minutos:number = Number.parseInt(horario.split(":")[1]);
       let retorno:string;
-  
+
       minutos += duracion;
-  
+
       if(minutos >= 60){
         horas++
         minutos-= 60
         minutosStr = minutos < 10 ? "0"+minutos.toString() : minutos.toString()
         horasStr = horas < 10 ? "0"+horas.toString() : horas.toString()
-  
+
         retorno = horasStr + ':' + minutosStr
       }
       else{
@@ -142,7 +144,7 @@ cambiarHorarios()
       let minutos = Number.parseInt(horario.split(":")[1])
       minutos -= duracion;
       let retorno:string
-  
+
       if(minutos < 0){
         horas--
         minutos+= 60
@@ -155,7 +157,7 @@ cambiarHorarios()
         horasStr = horas < 10 ? "0"+horas.toString() : horas.toString()
         retorno = horasStr + ":" + minutosStr
       }
-  
+
       console.log(retorno);
       return retorno
     }

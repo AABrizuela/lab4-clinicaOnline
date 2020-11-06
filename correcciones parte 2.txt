@@ -1,0 +1,11 @@
+o.villegas@sistemas-utnfra.com.ar
+
+-----------------------------------
+
+Correcciones
+
+que en 5 o 6 click se saque turno
+
+agregar turnos disponibles sin time picker
+
+con botones pido lo que el especialista tiene disponible

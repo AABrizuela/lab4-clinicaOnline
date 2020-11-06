@@ -39,11 +39,11 @@ button:hover{
     color: white;
 }
 
-// input:hover, input:focus{
-//     background: #fa2424;
-//     transform: scale(1.1);
-//     color: white;
-// }
+input:hover, input:focus{
+    background: #fa2424;
+    transform: scale(1.1);
+    color: white;
+}
 
 div.navBar{
     height: 8%;
@@ -84,4 +84,17 @@ span.noHabilitado{
     border: solid 1px red;
     border-radius: 5px;
     background: white;
+}
+
+div.bienvenida {
+    font-size: 2.5em;
+    height: 100%;
+    width: 35%;
+    display: flex;
+    align-items: center;
+}
+
+div.bienvenida img{
+    width: 8%;
+    margin: 10px;
 }

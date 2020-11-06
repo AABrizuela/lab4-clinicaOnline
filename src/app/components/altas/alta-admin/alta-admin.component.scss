@@ -1,132 +1,122 @@
 *{
-    font-family: 'coolvetica strong';
+  font-family: 'coolvetica strong';
 }
 
 div.container{
-    width: 100vw;
-    height: 100vh;
-    background: none;
+  width: 100vw;
+  height: 100vh;
+  background: none;
 }
 
 div.optNavBar{
-    font-size: 1.5em;
-    width: 20%;
-}
-
-div.bienvenida {
-    font-size: 2.5em;
-    padding-left: 5%;
-    height: 100%;
-    width: 35%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 1.5em;
+  width: 20%;
 }
 
 div.seleccion {
-    height: 65%;
-    width: 35%;
-    display: flex;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border: solid 2px #fa2424;
-    border-radius: 5px;
-    flex-flow: column;
-    align-items: center;
-    background: white;
+  height: 65%;
+  width: 35%;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: solid 2px #fa2424;
+  border-radius: 5px;
+  flex-flow: column;
+  align-items: center;
+  background: white;
 }
 
 div.conjunto {
-    width: 65%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 form.registro {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
-    align-items: center;
-    width: 100%;
-    justify-content: space-evenly;
-    font-size: 2.6em;
-    font-family: 'coolvetica strong';
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  font-size: 2.6em;
+  font-family: 'coolvetica strong';
 }
 
 .row{
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .carga{
-    height: 80%;
+  height: 80%;
 }
 
 .envio{
-    height: 20%;
+  height: 20%;
 }
 
 .textos {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    width: 90%;
-    height: 30%;
-    justify-content: space-evenly;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 90%;
+  height: 30%;
+  justify-content: space-evenly;
 }
 
 div.botones{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
 }
 
 .datos {
-    width: 75%;
-    height: 40%;
-    border-radius: 10px;
-    border: solid 1px #fa2424;
-    outline: none;
-    text-align: center;
+  width: 75%;
+  height: 40%;
+  border-radius: 10px;
+  border: solid 1px #fa2424;
+  outline: none;
+  text-align: center;
 }
 
 button{
-    width: 60%;
-    height: 60%;
-    font-size: 0.8em;
-    font-family: 'coolvetica strong';
+  width: 60%;
+  height: 60%;
+  font-size: 0.8em;
+  font-family: 'coolvetica strong';
 }
 
 div.form {
-    width: 65%;
-    height: 80%;
-    border: solid 2px #fa2424;
-    border-radius: 5px;
-    background: white;
+  width: 65%;
+  height: 80%;
+  border: solid 2px #fa2424;
+  border-radius: 5px;
+  background: white;
 }
 
 div.datosUsuario {
-    flex: 50%;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    align-items: center;
+  flex: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 div.error {
-    background: #ff3d3d;
-    width: 65%;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    justify-content: center;
+  background: #ff3d3d;
+  width: 65%;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
 span.error {
-    font-size: 0.5em;
-    text-align: center;
+  font-size: 0.5em;
+  text-align: center;
 }

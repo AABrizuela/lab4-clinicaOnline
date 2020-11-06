@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="contain">
+      <div class="titulo"><span class="titulo">Completa la palabra para finalizar el registro</span></div>
+      <div id="pal" class="palabra"><span class="palabra" id="palabra"></span></div>
+      <div class="ingreso" id="ingreso">
+          <input type="text" id="completa" maxlength="1" autocomplete="off" spellcheck="false" placeholder="Ingrese la letra..." (change)="comprobar()">
+      </div>
+      <div class="botones">
+          <button (click)="empezar()">Otra palabra</button>
+          <button (click)="cancel()">Cancelar</button>
+          <button (click)="skip()">Saltear Captcha</button>
+      </div>
+      <div class="errorCom" id="errorCom">Letra incorrecta</div>
+  </div>
+</div>

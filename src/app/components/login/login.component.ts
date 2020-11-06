@@ -31,11 +31,10 @@ export class LoginComponent implements OnInit {
     $('#errorEmail').attr('hidden', true);
     $('#spanEmail, #spanPass').text('');
     $('#errorPass').attr('hidden', true);
-    const email = $('#email').val();
-    const contrasena = $('#contrasena').val();
+    let email = $('#email').val();
+    let contrasena = $('#contrasena').val();
     if (this.validarCorreo(email) && this.validarClave(contrasena)){
       this.service.loginEmail(email, contrasena).catch(e => {this.textoMostrar(e); this.service.logout(); }).then(a => {
-        // tslint:disable-next-line: triple-equals
         if (this.service.isEmailVerified() || email == 'admin@admin.com' || email == 'paciente@paciente.com' || email == 'profesional@profesional.com'){
           $('#botones').css('display', 'none');
           $('#spinner').css('display', 'inline-block');
@@ -54,7 +53,7 @@ export class LoginComponent implements OnInit {
   validarCorreo(email): boolean
   {
     let retorno = false;
-    const regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}.){1,125}[A-Z]{2,63}$/i;
+    let regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}.){1,125}[A-Z]{2,63}$/i;
 
     if (regex.test(email))
     {
@@ -135,42 +134,43 @@ export class LoginComponent implements OnInit {
 
   async goToHome(email: string, pass: string){
     console.log('entro auth');
-    const pacienteObservable = this.db.collection('pacientes').valueChanges();
+    let pacienteObservable = this.db.collection('pacientes').valueChanges();
     let profile: string;
     await pacienteObservable.subscribe((listado: Usuario[]) => {
       console.log('entro sus paciente');
 
-      for (const paciente of listado) {
+      for (let paciente of listado) {
         if (paciente.email == email && paciente.pass == pass){
           profile = paciente.perfil;
+          localStorage.setItem('perfilUser', 'paciente');
           this.router.navigate(['home']);
           break;
         }
       }
 
       if (profile == undefined){
-        const profesionalObservable = this.db.collection('profesionales').valueChanges();
+        let profesionalObservable = this.db.collection('profesionales').valueChanges();
         profesionalObservable.subscribe((listado: Profesional[]) => {
           console.log('entro sus prof');
 
-          for (const profesional of listado) {
+          for (let profesional of listado) {
             if (profesional.email == email && profesional.pass == pass){
               profile = profesional.perfil;
-              console.log("entro if profesional");
+              localStorage.setItem('perfilUser', 'profesional');
               this.router.navigate(['home/profesional']);
               break;
             }
           }
 
           if (profile == undefined){
-            const adminObservable = this.db.collection('admins').valueChanges();
-            // tslint:disable-next-line: no-shadowed-variable
+            let adminObservable = this.db.collection('admins').valueChanges();
             adminObservable.subscribe((listado: Admin[]) => {
               console.log('entro sus admin');
 
-              for (const admin of listado) {
+              for (let admin of listado) {
                 if (admin.email == email && admin.pass == pass){
                   profile = admin.perfil;
+                  localStorage.setItem('perfilUser', 'admin');
                   this.router.navigate(['home/admin']);
                   break;
                 }

@@ -21,7 +21,7 @@ export class AuthService {
   registerUser(user){
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(user.email,user.pass)
-      .then(userData => { 
+      .then(userData => {
         resolve(userData)
         switch(user.perfil){
           case 'admin':
@@ -70,7 +70,7 @@ export class AuthService {
       this.afAuth.auth.signInWithEmailAndPassword(email,pass)
       .then(userData => {
         resolve(userData)
-       
+
       }, err => reject (err)).catch( e=>reject(e))
     });
   }
@@ -104,7 +104,7 @@ export class AuthService {
           email: data.email,
           pass: data.pass,
           perfil: data.perfil,
-          fotoUno: data.fotoUno , 
+          fotoUno: data.fotoUno ,
           fotoDos: data.fotoDos,
           nombre: data.nombre,
           atencion: data.atencion,
@@ -132,4 +132,11 @@ export class AuthService {
       this.db.collection(collection).valueChanges().subscribe(data=>resolve(data), err => reject (err))
     })
   }
+
+  getBDByDoc(collection:string, nameDoc:string){
+    return new Promise((resolve, reject) => {
+      this.db.collection(collection).doc(nameDoc).valueChanges().subscribe(data=>resolve(data), err => reject (err))
+    })
+  }
+
 }

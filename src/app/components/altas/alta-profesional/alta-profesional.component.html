@@ -1,66 +1,66 @@
 <div class="containerUsuario">
-    <div class="form">
-        <div class="titulo">
-            <span>Registro de Profesional</span>
-        </div>
-        <form ngNativeValidate (ngSubmit)="registrar()" class="registro">
-            <div class="row carga">
-                <div class="datosUsuario">
-                    <div class="usuario textos">
-                        <span class="usuario">Nombre</span>
-                        <input type="text" id="nombre" required class="datos" autocomplete="off" maxlength="30">
-                    </div>
-                    <div class="usuario textos">
-                        <span class="usuario">Apellido</span>
-                        <input type="text" id="apellido" required class="datos" autocomplete="off" maxlength="30">
-                    </div>
-                    <div class="usuario textos">
-                        <span class="usuario">E-Mail</span>
-                        <input type="text" id="email" class="datos" autocomplete="off" maxlength="30">
-                    </div>
-                    <div class="contrasena textos">
-                        <span class="contrasena">Contraseña</span>
-                        <input type="password" id="contrasena" class="datos" maxlength="20">
-                    </div>
-                </div>
-                <div class="cajaEsp">
-                    <span class="usuario">Especialidad</span>
-                    <div class="usuario textos">
-                        <div class="ingreso">
-                            <input type="text" id="espUno" class="datos" autocomplete="off" maxlength="20">
-                            <i class="material-icons add" (click)="agregarEspecialidades()">add_circle_outline</i>
-                        </div>
-                    </div>
-                    <div class="listadoEsp" >
-                        <p class="titEsp">Listado</p>
-                        <div class="espItem" *ngFor="let item of especialidades">
-                            <span class="nombreEsp">{{item}}</span>
-                            <i class="material-icons remove" (click)="borrarEspecialidades(item)">cancel</i>
-                        </div>
-                    </div>
-                </div>
-
-               <div class="fotos">
-                   <div >
-                       <img [src]="fotoUno" alt="Imagen del usuario">
-                       <input class="traerFrente" type="file" accept="image/jpeg" id="fotoUno" placeholder="olavv">
-                   </div>
-                   <div class="elegirFoto">
-                       <img [src]="fotoDos" alt="Imagen del usuario">
-                       <input class="traerFrente" type="file" accept="image/jpeg" id="fotoDos">
-                   </div>
-               </div>
-            </div>
-            <div class="row envio">
-                <div class="botones">
-                    <div class="datosUsuario" id="divError">
-                        <div  class="error" id="errorProf"><span class="error" id="spanProf">Correo requerido</span></div>
-                    </div>
-                    <div class="datosUsuario">
-                        <button type="submit">Registrarme</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+  <div class="form">
+      <div class="titulo">
+          <span>Registro de Profesional</span>
+      </div>
+      <form ngNativeValidate (ngSubmit)="registrar()" class="registro">
+          <div class="row carga">
+              <div class="datosUsuario">
+                  <div class="usuario textos">
+                      <span class="usuario">Nombre</span>
+                      <input type="text" id="nombre" required class="datos" autocomplete="off" maxlength="30">
+                  </div>
+                  <div class="usuario textos">
+                      <span class="usuario">Apellido</span>
+                      <input type="text" id="apellido" required class="datos" autocomplete="off" maxlength="30">
+                  </div>
+                  <div class="usuario textos">
+                      <span class="usuario">E-Mail</span>
+                      <input type="text" id="email" class="datos" autocomplete="off" maxlength="30">
+                  </div>
+                  <div class="contrasena textos">
+                      <span class="contrasena">Contraseña</span>
+                      <input type="password" id="contrasena" class="datos" maxlength="20">
+                  </div>
+              </div>
+              <div class="cajaEsp">
+                  <span class="usuario">Especialidad</span>
+                  <div class="usuario textos">
+                      <div class="ingreso">
+                          <input type="text" id="espUno" class="datos" autocomplete="off" maxlength="20">
+                          <i class="material-icons add" (click)="agregarEspecialidades()">add_circle_outline</i>
+                      </div>
+                  </div>
+                  <div class="listadoEsp" >
+                      <p class="titEsp">Listado</p>
+                      <div class="espItem" *ngFor="let item of especialidades">
+                          <span class="nombreEsp">{{item}}</span>
+                          <i class="material-icons remove" (click)="borrarEspecialidades(item)">cancel</i>
+                      </div>
+                  </div>
+              </div>
+             <div class="fotos">
+                 <div class="elegirFoto">
+                     <img [src]="fotoUno" alt="Imagen del usuario">
+                     <input type="file" accept="image/jpeg" id="fotoUno">
+                 </div>
+                 <div class="elegirFoto">
+                     <img [src]="fotoDos" alt="Imagen del usuario">
+                     <input type="file" accept="image/jpeg" id="fotoDos">
+                 </div>
+             </div>
+          </div>
+          <div class="row envio">
+              <div class="botones">
+                  <div class="datosUsuario" id="divError">
+                      <div  class="error" id="errorProf"><span class="error" id="spanProf">Correo requerido</span></div>
+                  </div>
+                  <div class="datosUsuario">
+                      <button type="submit">Registrarme</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
 </div>
+<app-complete-the-word *ngIf="captcha" (completeWord_ouput)="validarCaptcha($event)"></app-complete-the-word>

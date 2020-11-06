@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,15 @@ import { EstadoAtendidoPipe } from './pipes/estado-atendido.pipe';
 import { TurnosRecibidosComponent } from './components/turnos/turnos-recibidos/turnos-recibidos.component';
 import { TurnosPendientesPipe } from './pipes/turnos-pendientes.pipe';
 import { TurnosAceptadoPipe } from './pipes/turnos-aceptado.pipe';
-import { HomeProfesionalNoHabilitadoComponent } from './components/home/home-profesional-no-habilitado/home-profesional-no-habilitado.component'
+import { HomeProfesionalNoHabilitadoComponent } from './components/home/home-profesional-no-habilitado/home-profesional-no-habilitado.component';
+import { CompleteTheWordComponent } from './components/captcha/complete-the-word/complete-the-word.component';
+import { PerfilComponent } from './components/perfiles/perfil/perfil.component';
+import { PerfilPacienteComponent } from './components/perfiles/perfil-paciente/perfil-paciente.component';
+import { PerfilProfesionalComponent } from './components/perfiles/perfil-profesional/perfil-profesional.component';
+import { PerfilAdminComponent } from './components/perfiles/perfil-admin/perfil-admin.component';
+import { AtenderComponent } from './components/atencion/atender/atender.component';
+import { TurnosDeHoyPipe } from './pipes/turnos-de-hoy.pipe';
+import { EncuestaComponent } from './components/atencion/encuesta/encuesta.component';
 
 @NgModule({
   declarations: [
@@ -60,13 +69,22 @@ import { HomeProfesionalNoHabilitadoComponent } from './components/home/home-pro
     TurnosRecibidosComponent,
     TurnosPendientesPipe,
     TurnosAceptadoPipe,
-    HomeProfesionalNoHabilitadoComponent
+    HomeProfesionalNoHabilitadoComponent,
+    CompleteTheWordComponent,
+    PerfilComponent,
+    PerfilPacienteComponent,
+    PerfilProfesionalComponent,
+    PerfilAdminComponent,
+    AtenderComponent,
+    TurnosDeHoyPipe,
+    EncuestaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     AngularFireAuthModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [AuthService, AngularFirestore],

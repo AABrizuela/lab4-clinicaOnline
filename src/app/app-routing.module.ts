@@ -12,41 +12,45 @@ import { HabilitarProfComponent } from './components/habilitar-prof/habilitar-pr
 import { AgregarEspecialidadComponent } from './components/agregar-especialidad/agregar-especialidad.component';
 import { AuthGuardGuard } from './guards/auth-guard.guard'
 import { ErrorComponent } from './components/error/error.component';
-import {ProfesionalGuard} from './guards/profesional.guard'
+import { ProfesionalGuard } from './guards/profesional.guard'
 import { AltaTurnoComponent } from './components/turnos/alta-turno/alta-turno.component';
 import { ListadoProfesionalesComponent } from './components/turnos/listado-profesionales/listado-profesionales.component';
 import { SacarTurnoComponent } from './components/turnos/sacar-turno/sacar-turno.component';
 import { MisTurnosPacienteComponent } from './components/turnos/mis-turnos-paciente/mis-turnos-paciente.component';
 import { TurnosRecibidosComponent } from './components/turnos/turnos-recibidos/turnos-recibidos.component';
 import { HomeProfesionalNoHabilitadoComponent } from './components/home/home-profesional-no-habilitado/home-profesional-no-habilitado.component';
+import { PerfilComponent } from './components/perfiles/perfil/perfil.component';
+import { AtenderComponent } from './components/atencion/atender/atender.component';
 
 const routes: Routes = [
-  { path:'login', component: LoginComponent },
+  { path:'login', component: LoginComponent, data: {animation:'Login'} },
   { path:'registro', component: RegistroComponent, children: [
     { path:'paciente', component: AltaUsuarioComponent},
     { path:'profesional', component: AltaProfesionalComponent}
-  ]},
+  ], data: {animation:'Register'}},
   { path: 'home', children: [
     {path: '' , component: HomePacienteComponent},
     {path: 'profesional', component: HomeProfesionalComponent, canActivate: [ProfesionalGuard]},
     {path: 'admin', component: HomeAdminComponent},
     {path: 'profesional/no_habilitado', component: HomeProfesionalNoHabilitadoComponent},
-  ], canActivate: [AuthGuardGuard]},
+  ], canActivate: [AuthGuardGuard], data: {animation:'Home'}},
   {path: 'admin', children: [
     { path: 'registro', component: AltaAdminComponent},
     { path: 'habilitar_profesional', component: HabilitarProfComponent},
     { path: 'especialidades_profesional', component: AgregarEspecialidadComponent},
   ], canActivate: [AuthGuardGuard]},
   { path: 'error', component: ErrorComponent},
-  { path: '', pathMatch: 'full', redirectTo: 'login'}, 
+  { path: '', pathMatch: 'full', redirectTo: 'login'},
   { path: 'profesional', children:[
     { path: 'horarios', component: AltaTurnoComponent },
-    { path: 'turnos_recibidos', component: TurnosRecibidosComponent}
+    { path: 'turnos_recibidos', component: TurnosRecibidosComponent},
+    { path: 'atender', component: AtenderComponent}
   ], canActivate: [AuthGuardGuard]},
   { path: 'paciente', children:[
     { path: 'obtener_turno', component: SacarTurnoComponent},
     { path: 'mis_turnos', component: MisTurnosPacienteComponent}
-  ], canActivate: [AuthGuardGuard]}
+  ], canActivate: [AuthGuardGuard]},
+  { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuardGuard]}
 ];
 
 @NgModule({

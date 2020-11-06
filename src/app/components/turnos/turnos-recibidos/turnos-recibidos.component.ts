@@ -15,6 +15,7 @@ export class TurnosRecibidosComponent implements OnInit {
   current
   cancelo = false
   turnoCancelado
+  turnoResena
 
   constructor( private router:Router, private turnosService:TurnosService, private service:AuthService) { }
 
@@ -39,7 +40,7 @@ export class TurnosRecibidosComponent implements OnInit {
         this.turnosService.updateTurnos("turnos-pacientes", data.paciente, this.listadoTurnos);
         break;
       }
-    }  
+    }
   }
 
   cancelarTurno(){
@@ -54,7 +55,7 @@ export class TurnosRecibidosComponent implements OnInit {
         this.turnosService.updateTurnos("turnos-pacientes", this.turnoCancelado.paciente, this.listadoTurnos);
         break;
       }
-    }  
+    }
 
     this.cancelo = false
   }

@@ -1,0 +1,90 @@
+$rojo: #fa2424;
+
+*{
+    font-family: 'coolvetica strong';
+}
+.cnt-encuesta{
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.632);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:0
+}
+
+.cnt-encuenta-form {
+    background: white;
+    width: 40%;
+    height: 70%;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 1.3em;
+}
+
+form{
+    height: 90%;
+}
+
+p.tituloEncuesta {
+    background: $rojo;
+    height: 10%;
+    font-size: 3em;
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    resize: none;
+    width: 60%;
+}
+
+.encuesta-textarea{
+    text-align: center;
+    height: 45%;
+}
+
+.respuestas-row{
+    display: flex;
+    width: 100%;
+    height: 45%;
+}
+
+.encuesta-checkbox, .encuesta-radio{
+    flex: 50%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.encuesta-button {
+    height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.optItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+}
+
+.encuesta-checkbox .optItem{
+    width: 95%;
+}
+
+.encuesta-button button {
+    width: 25%;
+    height: 70%;
+    font-size: 1em;
+}

@@ -2,6 +2,7 @@
 <div class="container">
     <div class="navBar">
         <div class="bienvenida">
+            <img src="../../../../assets/logoClinica.png" alt="Logo de la clinica">
             <span class="bienvenida">Horarios</span>
         </div>
         <div class="conjunto">
@@ -10,10 +11,10 @@
             </div>
             <div class="optNavBar" routerLink="/home/profesional">
                 <span class="nombreOptNavBar">Inicio</span>
-            </div>    
+            </div>
             <div class="optNavBar" (click)="logout()">
                 <span class="nombreOptNavBar">Cerrar Sesión</span>
-            </div>    
+            </div>
         </div>
     </div>
     <div class="cuerpo">
@@ -30,8 +31,8 @@
                         <label><input type="checkbox" id="miercoles">Miércoles</label>
                         <label><input type="checkbox" id="jueves">Jueves</label>
                         <label><input type="checkbox" id="viernes">Viernes</label>
-                        <label><input type="checkbox" id="sabado" (change)="eligioSabado()">Sábado</label>    
-                    </div>        
+                        <label><input type="checkbox" id="sabado" (change)="eligioSabado()">Sábado</label>
+                    </div>
                 </div>
                 <div class="dias">
                     <span class="tituloDias">Horarios</span>
@@ -39,17 +40,17 @@
                         <div class="desdeHasta">
                             <div class="desde">
                                 <span class="desdeTitulo">Desde: </span>
-                                <input type="time" id="horaDesde" required min="08:00" max="18:30">    
+                                <input type="time" id="horaDesde" required min="08:00" max="18:30">
                             </div>
                             <div class="desde">
                                 <span class="desdeTitulo"> Hasta: </span>
-                                <input type="time" id="horaHasta" required min="8:30" max="19:00">          
+                                <input type="time" id="horaHasta" required min="8:30" max="19:00">
                             </div>
                         </div>
                         <div class="duracion">
                             <span>¿Cuánto durarán sus turnos?</span>
-                            <input type="number" id="duracion" value=30 min=10>            
-                        </div>    
+                            <input type="number" id="duracion" value=30 min=10>
+                        </div>
                     </div>
                 </div>
                 <div *ngIf="sabado" class="dias">
@@ -61,14 +62,14 @@
                         </div>
                         <div class="desde">
                             <span class="desdeTitulo"> Hasta: </span>
-                            <input type="time" id="horaSabHasta" required min="8:30" max="14:00">        
+                            <input type="time" id="horaSabHasta" required min="8:30" max="14:00">
                         </div>
                     </div>
                 </div>
                 <div class="boton">
                     <button type="submit">Guardar</button>
                 </div>
-    
+
             </div>
     </form>
     </div>

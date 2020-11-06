@@ -1,0 +1,22 @@
+<div class="fondo"></div>
+<div class="container">
+    <div class="navBar">
+        <div class="bienvenida">
+            <img src="../../../../assets/logoClinica.png" alt="Logo de la clinica">
+            <span class="bienvenida">Perfil</span>
+        </div>
+        <div class="conjunto">
+            <div class="optNavBar" (click)="goToHome()">
+                <span class="nombreOptNavBar">Volver al Inicio</span>
+            </div>
+            <div class="optNavBar" (click)="logout()">
+                <span class="nombreOptNavBar">Cerrar Sesión</span>
+            </div>
+        </div>
+    </div>
+    <div class="cuerpo">
+        <app-perfil-paciente *ngIf="profile == 'paciente'" [input_perfil_paciente]='profile'></app-perfil-paciente>
+        <app-perfil-profesional *ngIf="profile == 'profesional'"></app-perfil-profesional>
+        <app-perfil-admin *ngIf="profile == 'admin'"></app-perfil-admin>
+    </div>
+</div>

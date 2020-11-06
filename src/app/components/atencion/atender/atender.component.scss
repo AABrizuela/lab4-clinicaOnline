@@ -1,0 +1,197 @@
+$rojo: #fa2424;
+
+*{
+    font-family: 'coolvetica strong';
+}
+
+div.container{
+    width: 100vw;
+    height: 100vh;
+    background: none;
+}
+
+div.optNavBar{
+    font-size: 1.5em;
+    width: 25%;
+}
+
+div.seleccion {
+    height: 70%;
+    width: 40%;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 2px #fa2424;
+    border-radius: 5px;
+    flex-flow: column;
+    align-items: center;
+    background: white;
+}
+
+div.conjunto {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.card {
+    background: white;
+    border: solid 1px $rojo;
+    border-radius: 5px;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.titulo {
+    font-size: 3em;
+    background: red;
+    color: white;
+    width: 100%;
+    height: 15%;
+    text-align: center;
+}
+
+.tabla {
+    height: 85%;
+    width: 100%;
+    overflow: auto;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+th{
+    font-size: 1.5em;
+}
+
+tr:hover{
+    cursor: pointer;
+    background-color: #ffb6b6;
+}
+
+button{
+    width: 100%;
+    height: 100%;
+    color: black;
+}
+
+.cuerpo {
+    height: 92%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.material-icons{
+    font-family: 'Material Icons';
+    color: $rojo;
+    cursor: pointer;
+}
+
+.encuesta {
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.columna{
+    flex:50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.botones {
+    height: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botones button{
+    width: 30%;
+    height: 85%;
+    font-size: 1em;
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.contenidoForm{
+    height: 85%;
+    display: flex;
+    font-size: 1.5em;
+}
+
+.atenderBtn{
+    width: 25%;
+    height: 85%;
+    color: black;
+    font-size: 1em;
+}
+
+label {
+    width: 70%;
+    text-align: center;
+}
+
+.factores {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputDatos{
+    width: 20%;
+}
+
+div.opcional{
+    display: flex;
+    align-items: flex-end;
+}
+
+div.dato{
+    flex: 50%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitulo{
+    text-align: center;
+}
+
+.optInpt{
+    width: 90%;
+    text-align: center;
+}
+
+#errorAtencion{
+    display: none;
+    background: #ff000096;
+    height: 80%;
+    width: 26%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}

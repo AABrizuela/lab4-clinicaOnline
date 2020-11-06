@@ -2,6 +2,7 @@
 <div class="container">
     <div class="navBar">
         <div class="bienvenida">
+            <img src="../../../../assets/logoClinica.png" alt="Logo de la clinica">
             <span class="bienvenida">Mis Turnos</span>
         </div>
         <div class="conjunto">
@@ -10,10 +11,10 @@
             </div>
             <div class="optNavBar" routerLink="/home">
                 <span class="nombreOptNavBar">Inicio</span>
-            </div>    
+            </div>
             <div class="optNavBar" (click)="logout()">
                 <span class="nombreOptNavBar">Cerrar Sesión</span>
-            </div>    
+            </div>
         </div>
     </div>
     <div class="cuerpo">
@@ -39,7 +40,7 @@
                             <td>{{turno.estado}}</td>
                             <td *ngIf="turno.estado != 'cancelado'"><button class="rechazar" (click)="cancelarTurno(turno)">Cancelar</button></td>
                         </tr>
-                    </table>        
+                    </table>
                 </div>
             </div>
         </div>
@@ -63,11 +64,11 @@
                             <td>{{turno.profesional}}</td>
                             <td>{{turno.especialidad}}</td>
                             <td>{{turno.estado}}</td>
-                            <td *ngIf="botonResena(turno)"><button class="aceptar" (click)="cancelarTurno(turno)">Ver Reseña</button></td>
+                            <td *ngIf="botonResena(turno)"><button class="aceptar" (click)="turnoResena=turno">Ver Reseña</button></td>
                             <td *ngIf="botonEncuesta(turno)"><button class="encuesta">Encuesta</button></td>
                             <td *ngIf="turno.motivoCancelado"><button class="rechazar" (click)="mostrarMotivo(turno)">Ver Motivo</button></td>
                         </tr>
-                    </table>        
+                    </table>
                 </div>
             </div>
         </div>
@@ -84,6 +85,19 @@
         <div class="motivoBotones">
             <button type="button" class="enviar" (click)="motivoDeTurnos=false">Aceptar</button>
         </div>
-    
+
     </div>
 </div>
+<div *ngIf="turnoResena" class="resena">
+    <div class="contenidoResena">
+        <p>Fecha: {{turnoResena.fecha}} - Hora: {{turnoResena.horario}}</p>
+        <div class="data" *ngFor="let datito of turnoResena.datos">
+            <span>{{datito.nombre}}:</span> <span>{{datito.valor}}</span>
+        </div>
+        <div class="botonesResena">
+            <button (click)="turnoResena=null">Cerrar</button>
+            <button *ngIf="!turnoResena.encuestaPaciente" (click)="encuesta=true">Ir a Encuesta</button>
+        </div>
+    </div>
+</div>
+<app-encuesta *ngIf="encuesta" (output_encuesta)="encuestaTerminada($event)" [tipoUsuario]="'paciente'" [input_encuesta]="turnoResena"></app-encuesta>
