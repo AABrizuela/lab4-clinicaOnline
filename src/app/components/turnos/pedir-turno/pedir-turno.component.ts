@@ -26,6 +26,7 @@ export class PedirTurnoComponent implements OnInit {
   dataCurrent
   errorIgual= false
   quinceDias = []
+  horarios = []
 
   constructor(private turnosService:TurnosService, private service:AuthService) { }
 
@@ -106,20 +107,24 @@ cambiarHorarios(diaSelec)
               flag = true;
               break;
             }
+            console.log("Item vvv")
+            console.log(item)
+              console.log("Item fecha: " + item.fecha)
+              console.log("Fecha seleccionada: " + this.fechaSeleccionada)
           }
 
 
-        if(!flag){
-          this.turnosService.setTurno(this.profesionalSeleccionado.email,this.current.email, this.toJSON(this.duracion_turno))
-          this.output_pedir.emit()
-        }
-        else{
-          console.error("No hay turnos disponibles en ese horario");
-          this.errorIgual = true
-          setTimeout(() => {
-            this.errorIgual = false
-          }, 3000);
-        }
+        // if(!flag){
+        //   this.turnosService.setTurno(this.profesionalSeleccionado.email,this.current.email, this.toJSON(this.duracion_turno))
+        //   this.output_pedir.emit()
+        // }
+        // else{
+        //   console.error("No hay turnos disponibles en ese horario");
+        //   this.errorIgual = true
+        //   setTimeout(() => {
+        //     this.errorIgual = false
+        //   }, 3000);
+        // }
 
       })
     }
@@ -177,6 +182,8 @@ cambiarHorarios(diaSelec)
 
     cambiarEspecialidad(esp){
       this.especialidadSeleccionada = esp;
+      this.quinceDias = [];
+      this.horarios = [];
     }
 
   traerFecha(param)
@@ -187,8 +194,8 @@ cambiarHorarios(diaSelec)
     var proxSemana;
     var dosSemanas;
     var i = 0;
-
     var diaAux;
+
     if(param !== dtEs.weekdayLong.replace(/[á]/g, "a").replace(/[é]/g, "e"))
     {
       for(i; i < 7; i++)
@@ -216,11 +223,42 @@ cambiarHorarios(diaSelec)
       dosSemanas = dtEs.plus({days: 14}).setLocale('es').toLocaleString(DateTime.DATE_SHORT);
       this.quinceDias.push(dosSemanas);
     }
+
   }
 
-  traerHora()
+  traerHora(param)
   {
-    
+    this.horarios = [];
+    var horariosAux = this.profesionalSeleccionado.atencion;
+    var hora:string;
+    var i = 0;
+    // console.log(DateTime.fromFormat(horariosAux[0].desde, 'T').plus({minutes: horariosAux[0].duracion}).toLocaleString(DateTime.TIME_24_SIMPLE));
+    // hora = DateTime.fromFormat(horariosAux[0].desde, 'T').plus({minutes: horariosAux[0].duracion}).toLocaleString(DateTime.TIME_24_SIMPLE);
+    // this.horarios.push(hora);
+    // this.horarios.push(DateTime.fromFormat(horariosAux[0].desde, 'T').toLocaleString(DateTime.TIME_24_SIMPLE));
+    // console.log(DateTime.fromFormat(horariosAux[0].desde, 'T').toLocaleString(DateTime.TIME_24_SIMPLE));
+    // if(hora == DateTime.fromFormat(horariosAux[0].desde, 'T').toLocaleString(DateTime.TIME_24_SIMPLE))
+    // {
+    //   console.log('entro al if que se yo');
+    // }
+    console.log(this.profesionalSeleccionado);
+    console.log(horariosAux);
+    hora = DateTime.fromFormat(horariosAux[0].desde, 'T').toLocaleString(DateTime.TIME_24_SIMPLE);
+    this.horarios.push(hora);
+    while(i < 16)
+    {
+      if(hora !== DateTime.fromFormat(horariosAux[0].hasta, 'T').toLocaleString(DateTime.TIME_24_SIMPLE))
+      {
+        hora = DateTime.fromFormat(hora, 'T').plus({minutes: horariosAux[0].duracion}).toLocaleString(DateTime.TIME_24_SIMPLE);
+        this.horarios.push(hora);
+      }
+      else
+      {
+        break;
+      }
+      i++;
+    }
+    this.validarTurnosDisponibles();
   }
 
   toJSON(duracion : number)
