@@ -15,7 +15,7 @@ export class PedirTurnoComponent implements OnInit {
   @Input() profesionalSeleccionado
   @Output() output_pedir:EventEmitter<any> = new EventEmitter<any>()
   diaSeleccionado
-  dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sabado","domingo"];
+  dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sábado", "domingo"];
   fechaSeleccionada
   duracion_turno:number
   turnosProfesional
@@ -53,7 +53,6 @@ export class PedirTurnoComponent implements OnInit {
 
 cambiarHorarios(diaSelec)
   {
-    console.log(diaSelec);
     this.diaSeleccionado = diaSelec;
     this.quinceDias = [];
 
@@ -182,16 +181,33 @@ cambiarHorarios(diaSelec)
 
   traerFecha(param)
   {
-    console.log(param);
+    // console.log(param);
     var dt = DateTime.local();
     var dtEs = dt.setLocale('es');
     var proxSemana;
     var dosSemanas;
-    console.log(dtEs.weekdayLong);
-    var diaAux = Info.weekdays('long', {locale: 'es'})[0];
-    if(param !== dtEs.weekdayLong)
+    var i = 0;
+
+    var diaAux;
+    if(param !== dtEs.weekdayLong.replace(/[á]/g, "a").replace(/[é]/g, "e"))
     {
-      console.log("Param: " + param + "-" + "Hoy: " + dtEs.weekdayLong);
+      for(i; i < 7; i++)
+      {
+        diaAux = dtEs.plus({ days: i }).setLocale('es');
+        if(param !== diaAux.weekdayLong.replace(/[á]/g, "a").replace(/[é]/g, "e"))
+        {
+          continue;
+        }
+        else
+        {
+          break;
+        }
+      }
+      proxSemana = diaAux.setLocale('es').toLocaleString(DateTime.DATE_SHORT);
+      this.quinceDias.push(proxSemana);
+      dosSemanas = diaAux.plus({days: 7}).setLocale('es').toLocaleString(DateTime.DATE_SHORT);
+      this.quinceDias.push(dosSemanas);
+      console.log(this.quinceDias);
     }
     else
     {
@@ -199,10 +215,12 @@ cambiarHorarios(diaSelec)
       this.quinceDias.push(proxSemana);
       dosSemanas = dtEs.plus({days: 14}).setLocale('es').toLocaleString(DateTime.DATE_SHORT);
       this.quinceDias.push(dosSemanas);
-      console.log(this.quinceDias);
-      // console.log(dtEs.plus({days: 7}).setLocale('es').toLocaleString(DateTime.DATE_SHORT));
-      // console.log(dtEs.plus({days: 14}).setLocale('es').toLocaleString(DateTime.DATE_SHORT));
     }
+  }
+
+  traerHora()
+  {
+    
   }
 
   toJSON(duracion : number)
