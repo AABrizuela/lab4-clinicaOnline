@@ -95,7 +95,7 @@ span.titulosNombre{
   font-size: medium;
   color: white;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color: #607D8B;
+  background-color: red;
   line-height: 1em;
   position: relative;
   left: -1px;
@@ -110,7 +110,8 @@ span.titulosNombre{
   cursor: pointer;
   position: relative;
   left: 0;
-  background-color: #607D8B;
+  background-color: red;
+  color: white;
   margin: .5em;
   padding: .2em .5em;
   height: 1.6em;
@@ -119,7 +120,7 @@ span.titulosNombre{
 
 .semana li:hover
 {
-  color: #607D8B;
+  color: black;
   background-color: #DDD;
   left: .1em;
 }

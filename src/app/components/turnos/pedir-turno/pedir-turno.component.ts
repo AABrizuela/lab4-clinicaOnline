@@ -3,6 +3,7 @@ import * as $ from 'jquery'
 import { TurnosService } from 'src/app/services/turnos.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DateTime } from 'luxon';
+import Info from 'luxon/src/info.js'
 
 @Component({
   selector: 'app-pedir-turno',
@@ -24,6 +25,7 @@ export class PedirTurnoComponent implements OnInit {
   error = false
   dataCurrent
   errorIgual= false
+  quinceDias = []
 
   constructor(private turnosService:TurnosService, private service:AuthService) { }
 
@@ -53,8 +55,9 @@ cambiarHorarios(diaSelec)
   {
     console.log(diaSelec);
     this.diaSeleccionado = diaSelec;
+    this.quinceDias = [];
 
-    console.log(this.profesionalSeleccionado.atencion);
+    //console.log(this.profesionalSeleccionado.atencion);
 
     for(let horario of this.profesionalSeleccionado.atencion)
     {
@@ -68,7 +71,7 @@ cambiarHorarios(diaSelec)
         break;
       }
     }
-
+    this.traerFecha(diaSelec);
   }
 
 	 diaSemana() {
@@ -180,7 +183,26 @@ cambiarHorarios(diaSelec)
   traerFecha(param)
   {
     console.log(param);
-    console.log(Date.now());
+    var dt = DateTime.local();
+    var dtEs = dt.setLocale('es');
+    var proxSemana;
+    var dosSemanas;
+    console.log(dtEs.weekdayLong);
+    var diaAux = Info.weekdays('long', {locale: 'es'})[0];
+    if(param !== dtEs.weekdayLong)
+    {
+      console.log("Param: " + param + "-" + "Hoy: " + dtEs.weekdayLong);
+    }
+    else
+    {
+      proxSemana = dtEs.plus({days: 7}).setLocale('es').toLocaleString(DateTime.DATE_SHORT);
+      this.quinceDias.push(proxSemana);
+      dosSemanas = dtEs.plus({days: 14}).setLocale('es').toLocaleString(DateTime.DATE_SHORT);
+      this.quinceDias.push(dosSemanas);
+      console.log(this.quinceDias);
+      // console.log(dtEs.plus({days: 7}).setLocale('es').toLocaleString(DateTime.DATE_SHORT));
+      // console.log(dtEs.plus({days: 14}).setLocale('es').toLocaleString(DateTime.DATE_SHORT));
+    }
   }
 
   toJSON(duracion : number)

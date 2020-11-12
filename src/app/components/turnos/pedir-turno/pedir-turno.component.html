@@ -51,9 +51,8 @@
             <div>
               <h2>Selecciona la Fecha</h2>
               <ul class="semana">
-                <li class="selected" *ngFor="let dia of profesionalSeleccionado.atencion"
-                    (click)="traerFecha(dia.dia)">
-                    {{dia.dia}}
+                <li class="selected" *ngFor="let fecha of quinceDias">
+                    {{fecha}}
                 </li>
               </ul>
             </div>
