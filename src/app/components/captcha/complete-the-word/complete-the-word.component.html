@@ -3,7 +3,7 @@
       <div class="titulo"><span class="titulo">Completa la palabra para finalizar el registro</span></div>
       <div id="pal" class="palabra"><span class="palabra" id="palabra"></span></div>
       <div class="ingreso" id="ingreso">
-          <input type="text" id="completa" maxlength="1" autocomplete="off" spellcheck="false" placeholder="Ingrese la letra..." (change)="comprobar()">
+          <input type="text" id="completa" maxlength="1" autocomplete="off" spellcheck="false" placeholder="Ingrese la letra..." (keyup)="comprobar()">
       </div>
       <div class="botones">
           <button (click)="empezar()">Otra palabra</button>

@@ -1,0 +1,223 @@
+$rojo : #fa2424;
+
+div.busq-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+div.column{
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.card{
+    width: 80%;
+    height: 70%;
+    border: solid 2px $rojo;
+    background: white;
+    border-radius: 5px;
+}
+
+div.tittle{
+    background: $rojo;
+    font-size: 2em;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    color: white
+}
+
+div.contenido-busq{
+    width: 100%;
+    height: 90%;
+}
+
+div.barra-busqueda {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.barra-busqueda input{
+    width: 70%;
+    height: 60%;
+    text-align: center;
+}
+
+div.barra-busqueda input:focus{
+    background: inherit;
+    transform: inherit;
+    color: inherit;
+}
+
+div.barra-busqueda input:hover{
+    background: inherit;
+    transform: inherit;
+    color: inherit;
+}
+
+div.info {
+    height: 90%;
+    text-align: center;
+}
+
+div.info p{
+    position: relative;
+    top: 40%;
+    font-size: 2em;
+    overflow: auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: solid 1px gray;
+}
+
+tr:hover{
+    cursor: pointer;
+    background-color: #ffb6b6;
+}
+
+div.contenido-busq-detalle {
+    height: 90%;
+    text-align: center;
+}
+
+div.fecha {
+    height: 10%;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.info-turno {
+    display: flex;
+    height: 30%;
+    font-size: 1.5em;
+    align-items: center;
+}
+
+div.column-detalle {
+    flex: 50%;
+}
+
+p.nombre {
+    margin: 7%;
+}
+
+.izq {
+    border-bottom: solid 1px $rojo;
+    border-top: solid 1px $rojo;
+}
+
+.der{
+    border-left: solid 1px $rojo;
+    border-bottom: solid 1px $rojo;
+    border-top: solid 1px $rojo;
+}
+
+div.historia{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.historia-nugget {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+div.botones{
+    height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+div.botones button{
+    width: 25%;
+    height: 80%;
+    font-size: 1.3em;
+}
+
+div.encuesta{
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.encuesta-nugget {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.columnEncuesta{
+    height: 100%;
+    flex: 50%
+}
+
+.columnEncuesta p {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.tituloEncuesta {
+    height: 15%;
+}
+
+.cuerpoEncuesta {
+    height: 65%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.footerEncuesta {
+    height: 15%;
+    & span{
+        border: solid 1px #5F96E8;
+        border-radius: 3px;
+        padding: 1%;
+    }
+}
+
+.encDer{
+    border-left: solid 1px $rojo;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.historiaCuerpo{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: wrap;
+}
+
+td{
+  height: 3em;
+  max-height: 3em;
+}
+
+th{
+    height: 3em;
+    max-height: 3em;
+}

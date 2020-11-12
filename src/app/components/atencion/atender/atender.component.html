@@ -6,11 +6,11 @@
             <span class="bienvenida">Atender Pacientes</span>
         </div>
         <div class="conjunto">
-            <div class="optNavBar">
-                <span class="nombreOptNavBar" routerLink="/perfil">{{user.email}}</span>
+            <div class="optNavBar" routerLink="/perfil">
+                <span class="nombreOptNavBar" >{{user.email}}</span>
             </div>
-            <div class="optNavBar">
-                <span class="nombreOptNavBar" routerLink="/home/profesional">Inicio</span>
+            <div class="optNavBar" routerLink="/home/profesional">
+                <span class="nombreOptNavBar" >Inicio</span>
             </div>
             <div class="optNavBar" (click)="logout()">
                 <span class="nombreOptNavBar">Cerrar Sesión</span>
@@ -20,7 +20,7 @@
     <div class="cuerpo">
         <div class="card" *ngIf="!atencion">
             <div class="titulo">
-                <span>Turnos pendientes</span>
+                <span>Turnos del Día</span>
             </div>
             <div class="tabla">
                 <table>

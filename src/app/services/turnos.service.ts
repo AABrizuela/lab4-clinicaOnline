@@ -11,7 +11,7 @@ export class TurnosService {
   setTurno(profesional:string, paciente:string, data:any)
   {
     this.getTurnoProfesional(profesional).then((datos:any) => {
-      
+
       datos.turnos.push(data);
       this.updateTurnos('turnos-profesionales', profesional,datos);
     })
@@ -25,7 +25,7 @@ export class TurnosService {
   updateTurnos(collection, doc, data)
   {
     this.db.collection(collection).doc(doc).update(data);
-  } 
+  }
  getTurnosPacienteTodos()
   {
     return new Promise((resolve, reject) => {
@@ -58,9 +58,13 @@ export class TurnosService {
       this.db.collection("turnos-profesionales").doc(email).valueChanges()
       .subscribe(datos => resolve(datos), error => reject(error));
     });
-  } 
+  }
 
-  altaProfesional(email){
-    this.db.collection('turnos-profesionales').doc(email).set({turnos:[]})
+  altaProfesional(email, nombreApellido){
+    this.db.collection('turnos-profesionales').doc(email).set({turnos:[], nombre: nombreApellido})
+  }
+
+  altaPaciente(email, turnos=[]){
+    this.db.collection('turnos-pacientes').doc(email).set({turnos:turnos})
   }
 }

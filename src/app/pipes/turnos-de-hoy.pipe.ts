@@ -18,7 +18,7 @@ export class TurnosDeHoyPipe implements PipeTransform {
       if(item.estado == 'aceptado')
       {
         this.listaDelDia.push(item);
-      }
+      } 
     }
 
     this.ordenarLista();

@@ -1,0 +1,41 @@
+*{
+    font-family: 'coolvetica strong';
+}
+
+div.container{
+    width: 100vw;
+    height: 100vh;
+    background: none;
+}
+
+div.optNavBar{
+    font-size: 1.5em;
+    width: 20%;
+}
+
+div.seleccion {
+    height: 65%;
+    width: 60%;
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 2px #fa2424;
+    border-radius: 5px;
+    flex-flow: column;
+    align-items: center;
+    background: white;
+}
+
+div.conjunto {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.resto{
+    width: 100%;
+    height: 92%;
+}

@@ -34,6 +34,6 @@ export class HabilitarProfComponent implements OnInit {
     profesional.habilitado = true;
     this.db.collection('profesionales').doc(profesional.email).update(profesional)
     this.espService.updateEnTodosLados(profesional)
-    this.turnosService.altaProfesional(profesional.email)
+    this.turnosService.altaProfesional(profesional.email, `${profesional.nombre}  ${profesional.apellido}`)
   }
 }

@@ -137,18 +137,6 @@ button.aceptar{
     background-color: #3de500;
 }
 
-.estadoAceptado{
-    background-color: lawngreen;
-}
-
-.estadoCancelado{
-    background-color: $rojo;
-}
-
-.estadoPendiente{
-    background-color: grey;
-}
-
 .cancelo {
     position: absolute;
     width: 100%;
@@ -233,7 +221,6 @@ input#motivo:hover,:focus{
 .contenidoResena {
     background: white;
     width: 30%;
-    height: 40%;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -267,18 +254,46 @@ input#motivo:hover,:focus{
 .botonesResena {
     width: 100%;
     position: relative;
-    top: 7%;
+    top: 10%;
     height: 15%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-bottom: 3%;
 }
 
 .coment{
     position: relative;
-    top: 7%;
+    top: 9%;
     border: solid 2px #5F96E8;
     font-size: 1.3em;
-    width: 65%;
+    width: 85%;
     text-align: center;
+    margin: 5%;
+    overflow: auto;
+}
+
+#atendido{
+    background: #32cb0a;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+#pendiente{
+    background: grey;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+#cancelado{
+    background: $rojo;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+td.boton{
+    width: 10%;
 }

@@ -131,31 +131,57 @@ div.cuerpo {
 }
 
 .titulo {
-  font-size: 3em;
-  background: red;
-  color: white;
-  width: 100%;
-  height: 15%;
-  text-align: center;
+    font-size: 3em;
+    background: red;
+    color: white;
+    width: 100%;
+    height: 15%;
+    text-align: center;
 }
 
 .tabla {
-  height: 85%;
-  width: 100%;
-  overflow: auto;
+    height: 85%;
+    width: 100%;
+    overflow: auto;
 }
 
 table {
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
 }
 
 th{
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 tr:hover{
-  cursor: pointer;
-  background-color: #ffb6b6;
+    cursor: pointer;
+    background-color: #ffb6b6;
+}
+
+#atendido{
+    background: #32cb0a;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+#pendiente{
+    background: grey;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+#cancelado{
+    background: $rojo;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+button.rechazar{
+    background-color: $rojo;
+    color: white;
 }

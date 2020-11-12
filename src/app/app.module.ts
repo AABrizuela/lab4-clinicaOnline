@@ -43,6 +43,11 @@ import { PerfilAdminComponent } from './components/perfiles/perfil-admin/perfil-
 import { AtenderComponent } from './components/atencion/atender/atender.component';
 import { TurnosDeHoyPipe } from './pipes/turnos-de-hoy.pipe';
 import { EncuestaComponent } from './components/atencion/encuesta/encuesta.component';
+import { VerResenaPipe } from './pipes/ver-resena.pipe';
+import { BusqAdminComponent } from './components/busqueda/busq-admin/busq-admin.component';
+import { BusquedaInformacionComponent } from './components/busqueda/busqueda-informacion/busqueda-informacion.component';
+import { GraficosComponent } from './components/graficos/graficos.component';
+import { QuinceDiasPipe } from './pipes/quince-dias.pipe';
 
 @NgModule({
   declarations: [
@@ -78,6 +83,11 @@ import { EncuestaComponent } from './components/atencion/encuesta/encuesta.compo
     AtenderComponent,
     TurnosDeHoyPipe,
     EncuestaComponent,
+    VerResenaPipe,
+    BusqAdminComponent,
+    BusquedaInformacionComponent,
+    GraficosComponent,
+    QuinceDiasPipe,
   ],
   imports: [
     BrowserModule,

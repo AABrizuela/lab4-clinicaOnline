@@ -44,23 +44,23 @@ export class AgregarEspecialidadComponent implements OnInit {
           flag = true;
           break;
         }
-      } 
+      }
     }
     else
       flag = true;
-    
+
     if(flag){
       $(".error").text('La especialidad ya existe o está vacía');
       $(".error").css('display', 'flex')
     }
     else{
-      this.profToUpdate.especialidades.push(espUno);
+      this.profToUpdate.especialidades.push(espUno.toLocaleLowerCase());
       this.db.collection('profesionales').doc(this.profToUpdate.email).update(this.profToUpdate)
-      this.espService.subirEspecialidadBD(espUno, this.profToUpdate)
+      this.espService.subirEspecialidadBD(espUno.toLocaleLowerCase(), this.profToUpdate)
       this.espService.updateEnTodosLados(this.profToUpdate)
       this.update = false
     }
-    
+
   }
 
   mostrarUpdate(profesional:Profesional){
@@ -70,7 +70,7 @@ export class AgregarEspecialidadComponent implements OnInit {
 
   borrarEspecialidades(esp:string){
     this.espService.borrarEspecialidadBD(esp, this.profToUpdate)
-    
+
   }
 
 }

@@ -56,11 +56,6 @@ export class MisTurnosPacienteComponent implements OnInit {
     this.motivoStr = turno.motivoCancelado
   }
 
-  verResena(turno){
-
-
-  }
-
   encuestaTerminada(flag){
     if(flag){
       this.encuesta = false

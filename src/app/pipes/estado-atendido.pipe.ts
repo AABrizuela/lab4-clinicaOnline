@@ -5,15 +5,26 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class EstadoAtendidoPipe implements PipeTransform {
 
+  listaEstadoAtendido = []
   transform(value: any, ...args: unknown[]): unknown {
 
-    let listaEstadoAtendido = []
+
     for (let turno of value) {
       if(turno.estado != 'pendiente' && turno.estado != 'aceptado')
-        listaEstadoAtendido.push(turno)
+        this.listaEstadoAtendido.push(turno)
     }
+    this.ordenarLista()
+    return this.listaEstadoAtendido;
+  }
 
-    return listaEstadoAtendido;
+  ordenarLista()
+  {
+    this.listaEstadoAtendido.sort((a,b) => {
+      if(a.fecha> b.fecha)
+        return 1
+      else
+        return -1;
+    })
   }
 
 }

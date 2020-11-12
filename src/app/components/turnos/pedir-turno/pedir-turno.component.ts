@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import * as $ from 'jquery'
 import { TurnosService } from 'src/app/services/turnos.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { DateTime } from 'luxon';
 
 @Component({
   selector: 'app-pedir-turno',
@@ -21,11 +22,14 @@ export class PedirTurnoComponent implements OnInit {
   current
   especialidadSeleccionada
   error = false
+  dataCurrent
+  errorIgual= false
 
   constructor(private turnosService:TurnosService, private service:AuthService) { }
 
   ngOnInit(): void {
     this.current = this.service.obtenerUsuario()
+    this.service.getBDByDoc('pacientes', this.current.email).then(data=>this.dataCurrent=data)
   }
 
   getDate(option : string)
@@ -45,10 +49,12 @@ export class PedirTurnoComponent implements OnInit {
     return `${y}-${m}-${d}`
   }
 
-cambiarHorarios()
+cambiarHorarios(diaSelec)
   {
-    let select: any = document.getElementById("h-p-select");
-    this.diaSeleccionado = select.options[select.selectedIndex].text;
+    console.log(diaSelec);
+    this.diaSeleccionado = diaSelec;
+
+    console.log(this.profesionalSeleccionado.atencion);
 
     for(let horario of this.profesionalSeleccionado.atencion)
     {
@@ -70,6 +76,7 @@ cambiarHorarios()
       let diaCalendario = this.dias[date.getDay()];
       if(diaCalendario != this.diaSeleccionado){
         $("#boton").attr('disabled', true)
+        $("#error").text('El día seleccionado no coincide con los días de atención del profesional')
         this.error = true
       }
       else{
@@ -106,6 +113,10 @@ cambiarHorarios()
         }
         else{
           console.error("No hay turnos disponibles en ese horario");
+          this.errorIgual = true
+          setTimeout(() => {
+            this.errorIgual = false
+          }, 3000);
         }
 
       })
@@ -162,10 +173,16 @@ cambiarHorarios()
       return retorno
     }
 
-    cambiarEspecialidad(){
-      let select: any = document.getElementById("selectEsp");
-      this.especialidadSeleccionada = select.options[select.selectedIndex].text;
+    cambiarEspecialidad(esp){
+      this.especialidadSeleccionada = esp;
     }
+
+  traerFecha(param)
+  {
+    console.log(param);
+    console.log(Date.now());
+  }
+
   toJSON(duracion : number)
     {
       return {
@@ -176,7 +193,9 @@ cambiarHorarios()
         horario: this.horaSeleccionada,
         paciente: this.current.email,
         profesional: this.profesionalSeleccionado.email,
-        especialidad: this.especialidadSeleccionada
+        especialidad: this.especialidadSeleccionada,
+        nombreProfesional: this.profesionalSeleccionado.nombre + ' ' + this.profesionalSeleccionado.apellido,
+        nombrePaciente: this.dataCurrent.nombre + " " + this.dataCurrent.apellido
       }
     }
 }

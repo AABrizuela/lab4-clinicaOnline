@@ -60,12 +60,4 @@ export class TurnosRecibidosComponent implements OnInit {
     this.cancelo = false
   }
 
-  evaluarEstado(estado:string){
-    if(estado == 'pendiente')
-      $("#tdEstado").addClass('estadoPendiente');
-    else if(estado == 'aceptado')
-      $("#tdEstado").addClass('estadoAceptado');
-    else if(estado == 'cancelado')
-    $("#tdEstado").addClass('estadoCancelado');
-  }
 }

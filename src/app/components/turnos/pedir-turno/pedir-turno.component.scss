@@ -38,10 +38,10 @@ form{
 }
 
 .fechas {
-  height: 20%;
+  height: 100%;
 }
 
-div#divError {
+div#divError, div#divErrorIgual {
   background: #fd5151ba;
   display: flex;
   justify-content: center;
@@ -87,5 +87,44 @@ span.titulosNombre{
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  align-items: center;
+}
+
+.semana .diaSemana
+{
+  display: inline-block;
+  font-size: medium;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.semana li
+{
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #607D8B;
+  margin: .5em;
+  padding: .2em .5em;
+  height: 1.6em;
+  border-radius: 4px;
+}
+
+.semana li:hover
+{
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+ul
+{
+  list-style-type: none;
 }

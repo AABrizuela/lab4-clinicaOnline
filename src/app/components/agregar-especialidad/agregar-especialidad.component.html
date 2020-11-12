@@ -11,10 +11,10 @@
             </div>
             <div class="optNavBar" routerLink="/home/admin">
                 <span class="nombreOptNavBar">Volver a Inicio</span>
-            </div>
+            </div>        
             <div class="optNavBar" (click)="logout()">
                 <span class="nombreOptNavBar">Cerrar Sesión</span>
-            </div>
+            </div>    
         </div>
     </div>
 
@@ -30,7 +30,7 @@
                         <td>{{profesional.email}}</td>
                         <td >{{profesional.especialidades}}</td>
                     </tr>
-                </table>
+                </table>         
             </div>
         </div>
         <div class="column" *ngIf="update">

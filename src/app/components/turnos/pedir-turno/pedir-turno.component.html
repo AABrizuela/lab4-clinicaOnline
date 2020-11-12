@@ -4,7 +4,7 @@
   </div>
   <div class="cuerpo">
       <form ngNativeValidate (ngSubmit)="validarTurnosDisponibles()">
-          <div class="infoMedico">
+          <!-- <div class="infoMedico">
               <div class="infoColumn nombre">
                   <span class="titulosNombre">Nombre</span>
                   <span>{{profesionalSeleccionado.nombre}}</span>
@@ -25,21 +25,55 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <div class="fechas">
-              <select id="h-p-select" (change)="cambiarHorarios()" required>
-                  <option hidden selected>Selecciona el día</option>
-                  <option *ngFor="let dia of profesionalSeleccionado.atencion">{{dia.dia}}</option>
-              </select>
-              <select id="selectEsp" required (change)="cambiarEspecialidad()">
+            <div class="divEspecialidad">
+              <h2>Selecciona la</h2>
+              <h2>Especialidad</h2>
+              <ul class="semana">
+                <li class="selected" *ngFor="let esp of profesionalSeleccionado.especialidades"
+                    (click)="cambiarEspecialidad(esp)">
+                    {{esp}}
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2>Selecciona el Dia</h2>
+              <ul class="semana">
+                <li class="selected" *ngFor="let dia of profesionalSeleccionado.atencion"
+                    (click)="cambiarHorarios(dia.dia)">
+                    {{dia.dia}}
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h2>Selecciona la Fecha</h2>
+              <ul class="semana">
+                <li class="selected" *ngFor="let dia of profesionalSeleccionado.atencion"
+                    (click)="traerFecha(dia.dia)">
+                    {{dia.dia}}
+                </li>
+              </ul>
+            </div>
+
+            <!-- <select id="h-p-select" (change)="cambiarHorarios()" required>
+              <option hidden selected>Selecciona el día</option>
+              <option *ngFor="let dia of profesionalSeleccionado.atencion">{{dia.dia}}</option>
+            </select> -->
+              <!-- <select id="selectEsp" required (change)="cambiarEspecialidad()">
                   <option hidden selected>Selecciona la especialidad</option>
                   <option *ngFor="let esp of profesionalSeleccionado.especialidades">{{esp}}</option>
-              </select>
+              </select> -->
               <input type="date" id="fecha" (change)="diaSemana()" name="inptDate" [(ngModel)]="fechaSeleccionada" required>
               <input type="time" id="hora" required name="inptTime" [(ngModel)]="horaSeleccionada">
           </div>
           <div id="divError" class="error" *ngIf="error">
               <span id="error">El día seleccionado no coincide con los días de atención del profesional</span>
+          </div>
+          <div id="divErrorIgual" class="error" *ngIf="errorIgual">
+              <span id="error">No hay turnos disponibles en ese horario</span>
           </div>
           <div class="botones">
               <button id="boton" type="submit">Pedir</button>

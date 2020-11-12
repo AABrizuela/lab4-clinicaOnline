@@ -13,12 +13,12 @@
               <tr>
                   <th>Nombre</th>
                   <th>Apellido</th>
-                  <th>Especialidades</th>
+                  <!-- <th>Especialidades</th> -->
               </tr>
-              <tr *ngFor="let profesional of this.profesionales | listaHabilitados" (dblclick)="profParaSacarTurno(profesional)">
+              <tr *ngFor="let profesional of this.profesionales | listaHabilitados" (click)="profParaSacarTurno(profesional)">
                   <td>{{profesional.nombre}}</td>
                   <td>{{profesional.apellido}}</td>
-                  <td>{{profesional.especialidades}}</td>
+                  <!-- <td>{{profesional.especialidades}}</td> -->
               </tr>
           </table>
       </div>
@@ -26,13 +26,13 @@
               <table *ngFor="let especialidad of this.especialidades">
                   <caption>{{especialidad.nombre}}</caption>
                   <tr>
-                      <th>Nombre</th>
-                      <th>Apellido</th>
+                      <!-- <th>Nombre</th>
+                      <th>Apellido</th> -->
                       <th>Especialidades</th>
                   </tr>
-                  <tr *ngFor="let profesional of especialidad.profesionales | listaHabilitados" (dblclick)="profParaSacarTurno(profesional)">
-                      <td>{{profesional.nombre}}</td>
-                      <td>{{profesional.apellido}}</td>
+                  <tr *ngFor="let profesional of especialidad.profesionales | listaHabilitados" (click)="profParaSacarTurno(profesional)">
+                      <!-- <td>{{profesional.nombre}}</td>
+                      <td>{{profesional.apellido}}</td> -->
                       <td>{{profesional.especialidades}}</td>
                   </tr>
               </table>
@@ -45,7 +45,7 @@
                   <th>Apellido</th>
                   <th>Especialidades</th>
               </tr>
-              <tr *ngFor="let profesional of dia.profesionales | listaHabilitados" (dblclick)="profParaSacarTurno(profesional)">
+              <tr *ngFor="let profesional of dia.profesionales | listaHabilitados" (click)="profParaSacarTurno(profesional)">
                   <td>{{profesional.nombre}}</td>
                   <td>{{profesional.apellido}}</td>
                   <td>{{profesional.especialidades}}</td>

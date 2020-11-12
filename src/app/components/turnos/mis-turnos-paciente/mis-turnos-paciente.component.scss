@@ -142,18 +142,6 @@ button.encuesta{
     border: solid 1px grey;
 }
 
-.estadoAceptado{
-    background-color: lawngreen;
-}
-
-.estadoCancelado{
-    background-color: $rojo;
-}
-
-.estadoPendiente{
-    background-color: grey;
-}
-
 .motivo {
     position: absolute;
     width: 100%;
@@ -226,7 +214,7 @@ button.motivoCancelar {
 .contenidoResena {
     background: white;
     width: 30%;
-    height: 40%;
+    height: 45%;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
@@ -235,7 +223,8 @@ button.motivoCancelar {
 }
 
 .contenidoResena p {
-    background: red;
+    background: $rojo;
+    border: solid 1px $rojo;
     height: 15%;
     font-size: 2em;
     text-align: center;
@@ -260,9 +249,30 @@ button.motivoCancelar {
 .botonesResena {
     width: 100%;
     position: relative;
-    top: 17%;
+    top: 6%;
     height: 15%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+}
+
+#atendido{
+    background: #32cb0a;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+#pendiente{
+    background: grey;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+}
+
+#cancelado{
+    background: $rojo;
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
 }

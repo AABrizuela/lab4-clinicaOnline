@@ -37,7 +37,7 @@
                             <td>{{turno.horario}}</td>
                             <td>{{turno.paciente}}</td>
                             <td>{{turno.especialidad}}</td>
-                            <td id="tdEstado" >{{turno.estado}}</td>
+                            <td [id]="turno.estado" >{{turno.estado}}</td>
                             <td *ngIf="turno.estado == 'pendiente'"><button class="aceptar" (click)="aceptarTurno(turno)">Aceptar</button></td>
                             <td *ngIf="turno.estado == 'pendiente'"><button class="rechazar" (click)="cancelo=true;turnoCancelado=turno">Rechazar</button></td>
                         </tr>
@@ -64,9 +64,9 @@
                             <td>{{turno.horario}}</td>
                             <td>{{turno.paciente}}</td>
                             <td>{{turno.especialidad}}</td>
-                            <td>{{turno.estado}}</td>
+                            <td [id]="turno.estado">{{turno.estado}}</td>
                             <td *ngIf="turno.estado == 'aceptado'"><button class="rechazar" (click)="cancelo=true;turnoCancelado=turno">Cancelar</button></td>
-                            <td *ngIf="turno.encuestaPaciente"><button class="aceptar" (click)="turnoResena=turno">Ver</button></td>
+                            <td *ngIf="turno.encuestaPaciente" class="boton"><button class="aceptar" (click)="turnoResena=turno">Ver</button></td>
                         </tr>
                     </table>
                 </div>
@@ -91,7 +91,7 @@
 <div *ngIf="turnoResena" class="resena">
     <div class="contenidoResena">
         <p>Fecha: {{turnoResena.fecha}} - Hora: {{turnoResena.horario}}</p>
-        <div class="data" *ngFor="let datito of turnoResena.datos">
+        <div class="data" *ngFor="let datito of turnoResena.datos | verResena">
             <span>{{datito.nombre}}:</span> <span>{{datito.valor}}</span>
         </div>
         <div class="coment">

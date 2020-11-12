@@ -5,14 +5,25 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TurnosAceptadoPipe implements PipeTransform {
 
+  listadoAceptado = []
+
   transform(value: any, ...args: unknown[]): unknown {
-    let listadoAceptado = []
+    
     for (let turno of value) {
       if(turno.estado == 'aceptado' || turno.estado == 'atendido')
-        listadoAceptado.push(turno)
+        this.listadoAceptado.push(turno)
     }
-
-    return listadoAceptado;
+    this.ordenarLista()
+    return this.listadoAceptado;
   }
 
+  ordenarLista()
+  {
+    this.listadoAceptado.sort((a,b) => {
+      if(a.fecha> b.fecha)
+        return 1
+      else
+        return -1;
+    })
+  }
 }

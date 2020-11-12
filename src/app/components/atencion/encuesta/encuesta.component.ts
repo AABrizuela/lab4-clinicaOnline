@@ -8,16 +8,16 @@ import { TurnosService } from 'src/app/services/turnos.service';
 })
 export class EncuestaComponent implements OnInit {
 
-  @Input() input_encuesta: any;
-  @Input() tipoUsuario: string;
-  @Output() output_encuesta: EventEmitter<any> = new EventEmitter<any>();
-  cometario: string;
+  @Input() input_encuesta:any
+  @Input() tipoUsuario:string
+  @Output() output_encuesta:EventEmitter<any> = new EventEmitter<any>()
+  cometario:string;
   checkbox = [];
-  radio: string;
-  datos: any = [];
-  turnos: any = [];
+  radio : string;
+  datos:any = [];
+  turnos:any = [];
 
-  constructor(private servicio: TurnosService){}
+  constructor(private servicio:TurnosService){}
 
   ngOnInit(): void {
   }
@@ -27,26 +27,24 @@ export class EncuestaComponent implements OnInit {
     this.getRadio();
     this.getCheckbox();
     this.getComentario();
-    this.guardarDatos();
-    if (this.tipoUsuario == 'profesional') {
+    this.guardarDatos()
+    if(this.tipoUsuario == 'profesional')
       this.input_encuesta.encuesta = {datos: this.datos, comentario: this.cometario};
-    }
-    else if (this.tipoUsuario == 'paciente') {
+    else if(this.tipoUsuario == 'paciente')
       this.input_encuesta.encuestaPaciente = {datos: this.datos, comentario: this.cometario};
- }
 
-    this.turnos.turnos[this.getIndex()] = this.input_encuesta;
-    this.servicio.updateTurnos('turnos-profesionales', this.input_encuesta.profesional, this.turnos);
-    this.servicio.updateTurnos('turnos-pacientes', this.input_encuesta.paciente, this.turnos);
+    this.turnos.turnos[this.getIndex()] = this.input_encuesta
+    this.servicio.updateTurnos("turnos-profesionales",this.input_encuesta.profesional,this.turnos);
+    this.servicio.updateTurnos("turnos-pacientes",this.input_encuesta.paciente,this.turnos);
   }
 
   getRadio()
   {
-    let aux_radio: any = document.querySelectorAll('input[type=radio]');
+    let aux_radio:any= document.querySelectorAll('input[type=radio]');
 
-    for (let item of aux_radio)
+    for(let item of aux_radio)
     {
-      if (item.checked)
+      if(item.checked)
       {
         this.radio = item.value;
         break;
@@ -56,11 +54,11 @@ export class EncuestaComponent implements OnInit {
 
   getCheckbox()
   {
-    let aux_check: any = document.querySelectorAll('input[type=checkbox]');
+    let aux_check:any= document.querySelectorAll('input[type=checkbox]');
 
-    for (let item of aux_check)
+    for(let item of aux_check)
     {
-      if (item.checked)
+      if(item.checked)
       {
         this.checkbox.push(item.value);
       }
@@ -69,13 +67,13 @@ export class EncuestaComponent implements OnInit {
 
   getComentario()
   {
-    this.cometario = (document.querySelector('#encuesta-textarea') as HTMLInputElement).value;
+    this.cometario = (<HTMLInputElement>document.querySelector('#encuesta-textarea')).value;
   }
 
-  guardarDatos(): any[]
+  guardarDatos() : any[]
   {
-    this.datos.push({nombre : 'satisfecho' , valor : this.radio});
-    this.datos.push({nombre : 'modalidad' , valor : this.checkbox});
+    this.datos.push({nombre : "satisfecho" , valor : this.radio})
+    this.datos.push({nombre : "modalidad" , valor : this.checkbox})
     return this.datos;
   }
 
@@ -84,17 +82,17 @@ export class EncuestaComponent implements OnInit {
     this.servicio.getTurnoProfesional(this.input_encuesta.profesional).then((turnos) => {
       this.turnos = turnos;
       this.cargarEncuesta();
-      this.output_encuesta.emit(true);
-    });
+      this.output_encuesta.emit(true)
+    })
   }
 
   getIndex()
   {
-    let index: number = 0;
+    let index : number = 0;
 
-    for (index; index < this.turnos.turnos.length; index++)
+    for(index; index < this.turnos.turnos.length; index++)
     {
-      if (this.turnos.turnos[index].horario == this.input_encuesta.horario && this.turnos.turnos[index].fecha == this.input_encuesta.fecha)
+      if(this.turnos.turnos[index].horario == this.input_encuesta.horario && this.turnos.turnos[index].fecha == this.input_encuesta.fecha)
       {
         break;
       }
