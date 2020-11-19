@@ -30,21 +30,31 @@ export class BusquedaInformacionComponent implements OnInit {
   buscar(){
     this.turnosAMostrar = []
     this.palabra = this.palabra.toLocaleLowerCase().trim()
-    if(this.palabra.length > 0){
-      for (let turnito of this.todosLosTurnos) {
-        if(turnito.nombrePaciente.toLocaleLowerCase().includes(this.palabra) || turnito.nombreProfesional.toLocaleLowerCase().includes(this.palabra) ||
+    if(this.palabra.length > 0)
+    {
+      for (let turnito of this.todosLosTurnos)
+      {
+        if(turnito.paciente.toLocaleLowerCase().includes(this.palabra) || turnito.profesional.toLocaleLowerCase().includes(this.palabra) ||
            turnito.especialidad.toLocaleLowerCase().includes(this.palabra) || turnito.fecha.toLocaleLowerCase().includes(this.palabra) ||
-           turnito.estado.toLocaleLowerCase().includes(this.palabra) || turnito.dia.toLocaleLowerCase().includes(this.palabra) || 
+           turnito.estado.toLocaleLowerCase().includes(this.palabra) || turnito.dia.toLocaleLowerCase().includes(this.palabra) ||
            turnito.horario.toLocaleLowerCase().includes(this.palabra))
+        {
+          console.log(turnito)
           this.turnosAMostrar.push(turnito)
-        else{
-          if(turnito.datos != undefined){
-            for(let key of Object.keys(turnito.datos)){
-              if(key.toLocaleLowerCase().includes(this.palabra)){
+        }
+        else
+        {
+          if(turnito.datos != undefined)
+          {
+            for(let key of Object.keys(turnito.datos))
+            {
+              if(key.toLocaleLowerCase().includes(this.palabra))
+              {
+                console.log(turnito)
                 this.turnosAMostrar.push(turnito)
                 break;
               }
-            }  
+            }
           }
         }
       }

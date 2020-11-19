@@ -109,7 +109,11 @@ import { ToastrModule } from 'ngx-toastr';
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-bottom-full-width',
+      preventDuplicates: true,
+    }),
   ],
   providers: [AuthService, AngularFirestore],
   bootstrap: [AppComponent],

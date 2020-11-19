@@ -4,6 +4,8 @@ import { TurnosService } from 'src/app/services/turnos.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { DateTime } from 'luxon';
 import Info from 'luxon/src/info.js'
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedir-turno',
@@ -30,7 +32,11 @@ export class PedirTurnoComponent implements OnInit {
   quinceDias = []
   horarios = []
 
-  constructor(private turnosService:TurnosService, private service:AuthService)
+
+  constructor(private turnosService:TurnosService,
+              private service:AuthService,
+              private toast: ToastrService,
+              private router: Router)
   {
 
   }
@@ -40,6 +46,7 @@ export class PedirTurnoComponent implements OnInit {
     this.service.getBDByDoc('pacientes', this.current.email).then(data=>this.dataCurrent=data)
     this.quinceDias = [];
     this.horarios = [];
+
   }
 
   getDate(option : string)
@@ -300,10 +307,10 @@ export class PedirTurnoComponent implements OnInit {
   handleHora(hora)
   {
     //tiene que llegar la hora seleccionada del array de horas
-    console.log("Llega por output: " + hora);
     this.horaSeleccionada = hora;
     this.turnosService.setTurno(this.profesionalSeleccionado.email,this.current.email, this.toJSON(this.profesionalSeleccionado.atencion[0].duracion));
-
+    this.toast.success('Turno pedido', 'Guardado');
+    this.router.navigate(['home']);
   }
 
   toJSON(duracion : number)
