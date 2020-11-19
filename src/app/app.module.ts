@@ -54,6 +54,7 @@ import { SeleccionarDiaComponent } from './components/turnos/seleccionar-dia/sel
 import { SeleccionarFechaComponent } from './components/turnos/seleccionar-fecha/seleccionar-fecha.component';
 import { SeleccionarHoraComponent } from './components/turnos/seleccionar-hora/seleccionar-hora.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -108,6 +109,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    ToastrModule.forRoot(),
   ],
   providers: [AuthService, AngularFirestore],
   bootstrap: [AppComponent],

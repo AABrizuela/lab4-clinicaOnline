@@ -8,7 +8,6 @@ export class EstadoAtendidoPipe implements PipeTransform {
   listaEstadoAtendido = []
   transform(value: any, ...args: unknown[]): unknown {
 
-
     for (let turno of value) {
       if(turno.estado != 'pendiente' && turno.estado != 'aceptado')
         this.listaEstadoAtendido.push(turno)

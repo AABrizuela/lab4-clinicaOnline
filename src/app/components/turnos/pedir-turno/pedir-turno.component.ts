@@ -303,6 +303,7 @@ export class PedirTurnoComponent implements OnInit {
     console.log("Llega por output: " + hora);
     this.horaSeleccionada = hora;
     this.turnosService.setTurno(this.profesionalSeleccionado.email,this.current.email, this.toJSON(this.profesionalSeleccionado.atencion[0].duracion));
+
   }
 
   toJSON(duracion : number)
