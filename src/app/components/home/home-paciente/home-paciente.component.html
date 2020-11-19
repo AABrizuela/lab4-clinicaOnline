@@ -45,7 +45,7 @@
                             <td>{{turno.horario}}</td>
                             <td>{{turno.profesional}}</td>
                             <td>{{turno.especialidad}}</td>
-                            <td [id]="turno.estado">{{turno.estado}}</td>
+                            <td [changeStatusColor]="turno.estado">{{turno.estado}}</td>
                             <td *ngIf="turno.estado != 'cancelado'"><button class="rechazar" (click)="cancelarTurno(turno)">Cancelar</button></td>
                         </tr>
                     </table>

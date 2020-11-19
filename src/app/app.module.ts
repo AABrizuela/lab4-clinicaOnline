@@ -48,6 +48,13 @@ import { BusqAdminComponent } from './components/busqueda/busq-admin/busq-admin.
 import { BusquedaInformacionComponent } from './components/busqueda/busqueda-informacion/busqueda-informacion.component';
 import { GraficosComponent } from './components/graficos/graficos.component';
 import { QuinceDiasPipe } from './pipes/quince-dias.pipe';
+import { ChangeStatusColorDirective } from './directives/change-status-color.directive';
+import { SeleccionarEspecialidadComponent } from './components/turnos/seleccionar-especialidad/seleccionar-especialidad.component';
+import { SeleccionarDiaComponent } from './components/turnos/seleccionar-dia/seleccionar-dia.component';
+import { SeleccionarFechaComponent } from './components/turnos/seleccionar-fecha/seleccionar-fecha.component';
+import { SeleccionarHoraComponent } from './components/turnos/seleccionar-hora/seleccionar-hora.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -88,6 +95,12 @@ import { QuinceDiasPipe } from './pipes/quince-dias.pipe';
     BusquedaInformacionComponent,
     GraficosComponent,
     QuinceDiasPipe,
+    ChangeStatusColorDirective,
+    SeleccionarEspecialidadComponent,
+    SeleccionarDiaComponent,
+    SeleccionarFechaComponent,
+    SeleccionarHoraComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +109,7 @@ import { QuinceDiasPipe } from './pipes/quince-dias.pipe';
     AngularFireAuthModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    ToastrModule.forRoot(),
   ],
   providers: [AuthService, AngularFirestore],
   bootstrap: [AppComponent],

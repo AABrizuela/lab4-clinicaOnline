@@ -37,7 +37,7 @@
                             <td>{{turno.horario}}</td>
                             <td>{{turno.profesional}}</td>
                             <td>{{turno.especialidad}}</td>
-                            <td [id]="turno.estado">{{turno.estado}}</td>
+                            <td [changeStatusColor]="turno.estado">{{turno.estado}}</td>
                             <td *ngIf="turno.estado != 'cancelado'"><button class="rechazar" (click)="cancelarTurno(turno)">Cancelar</button></td>
                         </tr>
                     </table>
@@ -63,7 +63,7 @@
                             <td>{{turno.horario}}</td>
                             <td>{{turno.profesional}}</td>
                             <td>{{turno.especialidad}}</td>
-                            <td [id]="turno.estado" >{{turno.estado}}</td>
+                            <td [changeStatusColor]="turno.estado" >{{turno.estado}}</td>
                             <td *ngIf="botonResena(turno)"><button class="aceptar" (click)="turnoResena=turno">Ver Reseña</button></td>
                             <td *ngIf="botonEncuesta(turno)"><button class="encuesta">Encuesta</button></td>
                             <td *ngIf="turno.motivoCancelado"><button class="rechazar" (click)="mostrarMotivo(turno)">Ver Motivo</button></td>

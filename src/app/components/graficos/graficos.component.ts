@@ -21,24 +21,26 @@ export class GraficosComponent implements OnInit {
   semana:any;
   turnos:any;
   dias:any = ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
-  apretado
-
-  constructor(private service : AuthService,private turnosService: TurnosService, private router: Router, private filesService:DownloadFilesService) { }
+  apretado = 'opxesp'
+  constructor(private service : AuthService,private turnosService : TurnosService, private router:Router, private filesService:DownloadFilesService) { }
 
   ngOnInit(): void {
     this.user = this.service.obtenerUsuario()
 
     this.service.getBDByDoc('especialidad', 'especialidades').then((datos : any) => {
       this.especialidades = datos.nombre;
+      this.turnosService.getTurnosProfesionalTodos().then((datos:any) => {
+        this.turnos = datos
+        this.cargarOperacionesEspecialidades()
+
+      })
+  
     })
 
     this.service.getBD('semana').then((datos) => {
       this.semana = datos;
     })
 
-    this.turnosService.getTurnosProfesionalTodos().then((datos:any) => {
-      this.turnos = datos
-    })
 
   }
 
@@ -72,7 +74,7 @@ export class GraficosComponent implements OnInit {
       type: 'string',
       labels: {
         formatter: function() {
-
+          
         }
       }
     },
@@ -81,7 +83,7 @@ export class GraficosComponent implements OnInit {
         text:""
       }
     },
-    series: []//this.series
+    series: []//this.series 
   }
 
 cargarOperacionesEspecialidades()
@@ -89,7 +91,7 @@ cargarOperacionesEspecialidades()
     this.cambiarBoton('opxesp')
     this.series = []
     let c_especialidad:number = 0;
-
+    
     for(let especialidad of this.especialidades)
     {
       for(let item of this.turnos)
@@ -102,9 +104,9 @@ cargarOperacionesEspecialidades()
             }
           }
       }
-
+      
       this.series.push({name: especialidad, data: [c_especialidad]});
-      console.log(this.series);
+      console.log(this.series); 
       this.options.series = this.series
 
       c_especialidad = 0;
@@ -138,9 +140,9 @@ cargarOperacionesEspecialidades()
             }
           }
       }
-
+      
       this.series.push({name: dias, data: [c_turnos]});
-      console.log(this.series);
+      console.log(this.series); 
       this.options.series = this.series
       c_turnos = 0;
     }
@@ -168,7 +170,7 @@ cargarCharCantidadTurnosPorSemana(){
     for(let item of this.turnos)
     {
       this.series.push({name: item.nombre , data: [item.turnos.length]});
-      console.log(this.series);
+      console.log(this.series); 
     }
 
     this.options.series = this.series
@@ -197,9 +199,9 @@ cargarCharCantidadTurnosPorSemana(){
     let c_profesionales:number = 0;
 
     for(let dias of this.semana)
-    {
+    {  
       this.series.push({name: dias.dia, data: [dias.profesionales.length]});
-      console.log(this.series);
+      console.log(this.series); 
       c_profesionales = 0;
     }
     this.options.series = this.series

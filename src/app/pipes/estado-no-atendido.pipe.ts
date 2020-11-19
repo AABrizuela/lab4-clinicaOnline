@@ -8,11 +8,12 @@ export class EstadoNoAtendidoPipe implements PipeTransform {
 
   transform(value: any, ...args: unknown[]): unknown {
     for (let turno of value) {
-      if(turno.estado != 'atendido' && turno.estado != 'cancelado')
+      if(turno.estado == 'pendiente' || turno.estado == 'aceptado')
         this.listaEstadoNoAtendido.push(turno)
     }
     this.ordenarLista()
     return this.listaEstadoNoAtendido;
+
   }
 
   ordenarLista()

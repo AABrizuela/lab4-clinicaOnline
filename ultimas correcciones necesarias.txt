@@ -1,0 +1,5 @@
+TP:
+
+Historia clinica
+Busqueda dinamica
+Input/output turno

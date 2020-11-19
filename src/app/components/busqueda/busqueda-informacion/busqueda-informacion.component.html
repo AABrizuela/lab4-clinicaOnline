@@ -1,93 +1,93 @@
 <div class="busq-container">
-  <div class="column">
-      <div class="card">
-          <div class="tittle">
-              <p>Busqueda de Turnos</p>
-          </div>
-          <div class="contenido-busq">
-              <div class="barra-busqueda">
-                  <input type="text" name="palabra" (keyup)="buscar()" [(ngModel)]="palabra" autocomplete="off" placeholder="Ingrese su búsqueda">
-              </div>
-              <div class="info">
-                  <table *ngIf="turnosAMostrar.length > 0">
-                      <tr>
-                          <th>Profesional</th>
-                          <th>Especialidad</th>
-                          <th>Paciente</th>
-                          <th>Fecha</th>
-                      </tr>
-                      <tr *ngFor="let turno of turnosAMostrar" (dblclick)="turnoParaDetalle=turno">
-                          <td>{{turno.nombreProfesional}}</td>
-                          <td>{{turno.especialidad}}</td>
-                          <td>{{turno.nombrePaciente}}</td>
-                          <td>{{turno.fecha}}</td>
-                      </tr>
-                  </table>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="column" *ngIf="turnoParaDetalle">
-      <div class="card">
-          <div class="tittle">
-              <p>Detalles de Turno</p>
-          </div>
-          <div class="contenido-busq-detalle">
-              <div class="fecha">
-                  <p>{{turnoParaDetalle.fecha}} - {{turnoParaDetalle.horario}}</p>
-              </div>
-              <div class="info-turno">
-                  <div class="column-detalle izq">
-                      <p class="nombre"><span class="bold">Profesional:</span> {{turnoParaDetalle.nombreProfesional}}</p>
-                      <p class="nombre"><span class="bold">Estado del turno:</span> {{turnoParaDetalle.estado}}</p>
-                  </div>
-                  <div class="column-detalle der">
-                      <p class="nombre"><span class="bold">Paciente:</span> {{turnoParaDetalle.nombrePaciente}}</p>
-                      <p class="nombre"><span class="bold">Especialidad:</span> {{turnoParaDetalle.especialidad}}</p>
-                  </div>
-              </div>
-              <div class="historia" *ngIf="botonHistoria=='Ver Encuesta'">
-                  <div class="vacio" *ngIf="!turnoParaDetalle.datos"><p>Aún no se ha completado la historia del paciente.</p></div>
-                  <div class="historiaCuerpo" *ngIf="turnoParaDetalle.datos">
-                      <div class="historia-nugget" *ngFor="let datito of turnoParaDetalle.datos | verResena">
-                          <span><span class="bold">{{datito.nombre}}:</span> {{datito.valor}}</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="encuesta" *ngIf="!(botonHistoria=='Ver Encuesta')">
-                  <div class="vacio" *ngIf="!turnoParaDetalle.encuesta"><p>Aún no se ha completado la encuesta.</p></div>
-                  <div class="columnEncuesta" *ngIf="turnoParaDetalle.encuesta">
-                      <div class="tituloEncuesta">
-                          <p>Encuesta Profesional</p>
-                      </div>
-                      <div class="cuerpoEncuesta">
-                          <div class="encuesta-nugget" *ngFor="let datito of turnoParaDetalle.encuesta.datos">
-                              <span><span class="bold">{{datito.nombre}}:</span> {{datito.valor}}</span>
-                          </div>
-                      </div>
-                      <div class="footerEncuesta">
-                          <span>{{turnoParaDetalle.encuesta.comentario}}</span>
-                      </div>
-                  </div>
-                  <div class="columnEncuesta encDer" *ngIf="turnoParaDetalle.encuestaPaciente">
-                      <div class="tituloEncuesta">
-                          <p>Encuesta Paciente</p>
-                      </div>
-                      <div class="cuerpoEncuesta">
-                          <div class="encuesta-nugget" *ngFor="let datito of turnoParaDetalle.encuestaPaciente.datos">
-                              <span><span class="bold">{{datito.nombre}}:</span> {{datito.valor}}</span>
-                          </div>
-                      </div>
-                      <div class="footerEncuesta">
-                          <span>{{turnoParaDetalle.encuestaPaciente.comentario}}</span>
-                      </div>
-                  </div>
-              </div>
-              <div class="botones">
-                  <button type="button" (click)="cambiarInfo()">{{botonHistoria}}</button>
-                  <button type="button" (click)="turnoParaDetalle=undefined;">Cerrar</button>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="column">
+        <div class="card turnito">
+            <div class="tittle">
+                <p>Busqueda de Turnos</p>
+            </div>
+            <div class="contenido-busq">
+                <div class="barra-busqueda">
+                    <input type="text" name="palabra" (keyup)="buscar()" [(ngModel)]="palabra" autocomplete="off" placeholder="Ingrese su búsqueda">
+                </div>
+                <div class="info">
+                    <table *ngIf="turnosAMostrar.length > 0">
+                        <tr>
+                            <th>Profesional</th>
+                            <th>Especialidad</th>
+                            <th>Paciente</th>
+                            <th>Fecha</th>
+                        </tr>
+                        <tr *ngFor="let turno of turnosAMostrar" (dblclick)="turnoParaDetalle=turno">
+                            <td>{{turno.nombreProfesional}}</td>
+                            <td>{{turno.especialidad}}</td>
+                            <td>{{turno.nombrePaciente}}</td>
+                            <td>{{turno.fecha}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column" *ngIf="turnoParaDetalle">
+        <div class="card">
+            <div class="tittle">
+                <p>Detalles de Turno</p>
+            </div>
+            <div class="contenido-busq-detalle">
+                <div class="fecha">
+                    <p>{{turnoParaDetalle.fecha}} - {{turnoParaDetalle.horario}}</p>
+                </div>
+                <div class="info-turno">
+                    <div class="column-detalle izq">
+                        <p class="nombre"><span class="bold">Profesional:</span> {{turnoParaDetalle.nombreProfesional}}</p>
+                        <p class="nombre"><span class="bold">Estado del turno:</span> {{turnoParaDetalle.estado}}</p>
+                    </div>
+                    <div class="column-detalle der">
+                        <p class="nombre"><span class="bold">Paciente:</span> {{turnoParaDetalle.nombrePaciente}}</p>
+                        <p class="nombre"><span class="bold">Especialidad:</span> {{turnoParaDetalle.especialidad}}</p>
+                    </div>
+                </div>
+                <div class="historia" *ngIf="botonHistoria=='Ver Encuesta'">
+                    <div class="vacio" *ngIf="!turnoParaDetalle.datos"><p>Aún no se ha completado la historia del paciente.</p></div>
+                    <div class="historiaCuerpo" *ngIf="turnoParaDetalle.datos">
+                        <div class="historia-nugget" *ngFor="let datito of turnoParaDetalle.datos | verResena">
+                            <span><span class="bold">{{datito.nombre}}:</span> {{datito.valor}}</span>
+                        </div>    
+                    </div>
+                </div>
+                <div class="encuesta" *ngIf="!(botonHistoria=='Ver Encuesta')">
+                    <div class="vacio" *ngIf="!turnoParaDetalle.encuesta"><p>Aún no se ha completado la encuesta.</p></div>
+                    <div class="columnEncuesta" *ngIf="turnoParaDetalle.encuesta">
+                        <div class="tituloEncuesta">
+                            <p>Encuesta Profesional</p>
+                        </div>
+                        <div class="cuerpoEncuesta">
+                            <div class="encuesta-nugget" *ngFor="let datito of turnoParaDetalle.encuesta.datos">
+                                <span><span class="bold">{{datito.nombre}}:</span> {{datito.valor}}</span>
+                            </div>
+                        </div>
+                        <div class="footerEncuesta">
+                            <span>{{turnoParaDetalle.encuesta.comentario}}</span>
+                        </div>
+                    </div>
+                    <div class="columnEncuesta encDer" *ngIf="turnoParaDetalle.encuestaPaciente">
+                        <div class="tituloEncuesta">
+                            <p>Encuesta Paciente</p>
+                        </div>
+                        <div class="cuerpoEncuesta">
+                            <div class="encuesta-nugget" *ngFor="let datito of turnoParaDetalle.encuestaPaciente.datos">
+                                <span><span class="bold">{{datito.nombre}}:</span> {{datito.valor}}</span>
+                            </div>
+                        </div>
+                        <div class="footerEncuesta">
+                            <span>{{turnoParaDetalle.encuestaPaciente.comentario}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="botones">
+                    <button type="button" (click)="cambiarInfo()">{{botonHistoria}}</button>
+                    <button type="button" (click)="turnoParaDetalle=undefined;">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
