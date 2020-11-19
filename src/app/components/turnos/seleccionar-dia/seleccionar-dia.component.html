@@ -1,0 +1,9 @@
+<div>
+  <h2>Selecciona el Dia</h2>
+  <ul class="semana">
+    <li class="selected" *ngFor="let dia of profesionalSeleccionadoInpt.atencion"
+        (click)="lanzarDia(dia.dia)">
+        {{dia.dia}}
+    </li>
+  </ul>
+</div>

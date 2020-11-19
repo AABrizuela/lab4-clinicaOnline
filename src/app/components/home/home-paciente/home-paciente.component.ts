@@ -14,7 +14,10 @@ export class HomePacienteComponent implements OnInit {
   listadoTurnos
   user;
   datosUsuario;
-  constructor(public service:AuthService, public db:AngularFirestore, public router:Router, private turnosService:TurnosService) { }
+
+  constructor(public service:AuthService, public db:AngularFirestore, public router:Router, private turnosService:TurnosService) {
+
+   }
 
   ngOnInit(): void {
     this.user = this.service.obtenerUsuario();
@@ -22,13 +25,14 @@ export class HomePacienteComponent implements OnInit {
     let observable = promise.valueChanges();
     observable.subscribe(a => this.datosUsuario = a);
     this.turnosService.getTurnosPaciente(this.user.email).then(datos=>this.listadoTurnos = datos)
+    console.log(this.listadoTurnos)
   }
 
   logout(){
     this.service.logout();
     this.router.navigate(['login']);
   }
-  
+
   cancelarTurno(data){
     for(let item of this.listadoTurnos.turnos)
     {

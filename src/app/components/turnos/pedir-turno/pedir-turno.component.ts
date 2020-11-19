@@ -14,6 +14,8 @@ export class PedirTurnoComponent implements OnInit {
 
   @Input() profesionalSeleccionado
   @Output() output_pedir:EventEmitter<any> = new EventEmitter<any>()
+  @Output() especialidadSeleccionadaOpt : EventEmitter<any> = new EventEmitter<any>();
+
   diaSeleccionado
   dias = ["lunes", "martes", "miercoles", "jueves", "viernes", "sábado", "domingo"];
   fechaSeleccionada
@@ -28,11 +30,16 @@ export class PedirTurnoComponent implements OnInit {
   quinceDias = []
   horarios = []
 
-  constructor(private turnosService:TurnosService, private service:AuthService) { }
+  constructor(private turnosService:TurnosService, private service:AuthService)
+  {
+
+  }
 
   ngOnInit(): void {
     this.current = this.service.obtenerUsuario()
     this.service.getBDByDoc('pacientes', this.current.email).then(data=>this.dataCurrent=data)
+    this.quinceDias = [];
+    this.horarios = [];
   }
 
   getDate(option : string)
@@ -52,7 +59,7 @@ export class PedirTurnoComponent implements OnInit {
     return `${y}-${m}-${d}`
   }
 
-cambiarHorarios(diaSelec)
+  cambiarHorarios(diaSelec)
   {
     this.diaSeleccionado = diaSelec;
     this.quinceDias = [];
@@ -71,7 +78,7 @@ cambiarHorarios(diaSelec)
         break;
       }
     }
-    this.traerFecha(diaSelec);
+    // this.traerFecha(diaSelec);
   }
 
 	 diaSemana() {
@@ -88,46 +95,49 @@ cambiarHorarios(diaSelec)
       }
     }
 
-    validarTurnosDisponibles()
+    async validarTurnosDisponibles(hora)
     {
+
       let flag = false;
 
-      this.turnosService.getTurnoProfesional(this.profesionalSeleccionado.email).then((datos:any) =>{
-        this.turnosProfesional = datos;
+      let datos = await this.turnosService.getTurnoProfesional(this.profesionalSeleccionado.email);
 
-          for(let item of this.turnosProfesional.turnos)
+      this.turnosProfesional = datos;
+
+      for(let item of this.turnosProfesional.turnos)
+      {
+        if(item.fecha == this.fechaSeleccionada)
+        {
+          if(item.horario == hora)
           {
-            if(this.fechaSeleccionada == item.fecha && this.horaSeleccionada > this.sumarHorasMin(item.horario, this.duracion_turno) &&
-              this.horaSeleccionada < this.sumarHorasMax(item.horario, this.duracion_turno) && (item.estado != 'cancelado' || item.estado != 'atendido'))
+            if(item.estado == 'cancelado')
             {
-              console.log(item)
-              console.log(item.fecha)
-              console.log(this.fechaSeleccionada)
-
               flag = true;
+            }
+            else if(item.estado == 'aceptado' || item.estado == 'pendiente' || item.estado == 'atendido')
+            {
+              flag = false;
               break;
             }
-            console.log("Item vvv")
-            console.log(item)
-              console.log("Item fecha: " + item.fecha)
-              console.log("Fecha seleccionada: " + this.fechaSeleccionada)
+            else
+            {
+              flag = true;
+            }
           }
+          else
+          {
+            flag = true;
+          }
+         }
+        else
+        {
+          flag = true;
+        }
+      }
 
-
-        // if(!flag){
-        //   this.turnosService.setTurno(this.profesionalSeleccionado.email,this.current.email, this.toJSON(this.duracion_turno))
-        //   this.output_pedir.emit()
-        // }
-        // else{
-        //   console.error("No hay turnos disponibles en ese horario");
-        //   this.errorIgual = true
-        //   setTimeout(() => {
-        //     this.errorIgual = false
-        //   }, 3000);
-        // }
-
-      })
+      return flag;
     }
+
   sumarHorasMax(horario, duracion:number)
     {
       let minutosStr:string;
@@ -154,6 +164,7 @@ cambiarHorarios(diaSelec)
       console.log(retorno);
       return retorno
     }
+
    sumarHorasMin(horario, duracion)
     {
       let minutosStr
@@ -182,12 +193,11 @@ cambiarHorarios(diaSelec)
 
     cambiarEspecialidad(esp){
       this.especialidadSeleccionada = esp;
-      this.quinceDias = [];
-      this.horarios = [];
     }
 
   traerFecha(param)
   {
+    this.quinceDias = []
     // console.log(param);
     var dt = DateTime.local();
     var dtEs = dt.setLocale('es');
@@ -223,10 +233,9 @@ cambiarHorarios(diaSelec)
       dosSemanas = dtEs.plus({days: 14}).setLocale('es').toLocaleString(DateTime.DATE_SHORT);
       this.quinceDias.push(dosSemanas);
     }
-
   }
 
-  traerHora(param)
+  async traerHora()
   {
     this.horarios = [];
     var horariosAux = this.profesionalSeleccionado.atencion;
@@ -241,16 +250,23 @@ cambiarHorarios(diaSelec)
     // {
     //   console.log('entro al if que se yo');
     // }
-    console.log(this.profesionalSeleccionado);
-    console.log(horariosAux);
     hora = DateTime.fromFormat(horariosAux[0].desde, 'T').toLocaleString(DateTime.TIME_24_SIMPLE);
-    this.horarios.push(hora);
+    //this.horarios.push(hora);
+    console.log("retorno valid: " + this.validarTurnosDisponibles(hora))
+    if(await this.validarTurnosDisponibles(hora))
+    {
+      this.horarios.push(hora);
+    }
     while(i < 16)
     {
       if(hora !== DateTime.fromFormat(horariosAux[0].hasta, 'T').toLocaleString(DateTime.TIME_24_SIMPLE))
       {
         hora = DateTime.fromFormat(hora, 'T').plus({minutes: horariosAux[0].duracion}).toLocaleString(DateTime.TIME_24_SIMPLE);
-        this.horarios.push(hora);
+        console.log("retorno valid: " + this.validarTurnosDisponibles(hora))
+        if(await this.validarTurnosDisponibles(hora))
+        {
+          this.horarios.push(hora);
+        }
       }
       else
       {
@@ -258,7 +274,35 @@ cambiarHorarios(diaSelec)
       }
       i++;
     }
-    this.validarTurnosDisponibles();
+  }
+
+  handleEspecialidad(especialidad)
+  {
+    //tiene que llegar la especialidad seleccionada del array de especialidades
+    this.especialidadSeleccionada = especialidad;
+  }
+
+  handleDia(dia)
+  {
+    //tiene que llegar el dia seleccionado del array de dias
+    this.diaSeleccionado = dia;
+    this.traerFecha(this.diaSeleccionado);
+  }
+
+  handleFecha(fecha)
+  {
+    //tiene que llegar la fecha seleccionada del array de fechas
+
+    this.fechaSeleccionada = fecha;
+    this.traerHora();
+  }
+
+  handleHora(hora)
+  {
+    //tiene que llegar la hora seleccionada del array de horas
+    console.log("Llega por output: " + hora);
+    this.horaSeleccionada = hora;
+    this.turnosService.setTurno(this.profesionalSeleccionado.email,this.current.email, this.toJSON(this.profesionalSeleccionado.atencion[0].duracion));
   }
 
   toJSON(duracion : number)

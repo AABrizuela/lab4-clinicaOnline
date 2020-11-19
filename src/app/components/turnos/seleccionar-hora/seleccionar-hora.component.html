@@ -1,0 +1,9 @@
+<div>
+  <h2>Selecciona la Hora</h2>
+  <ul class="semana">
+    <li *ngFor="let hora of horariosInpt"
+        (click)="lanzarHora(hora)">
+        {{hora}}
+    </li>
+  </ul>
+</div>

@@ -14,7 +14,7 @@
             </div>
             <div class="optNavBar" (click)="logout()">
                 <span class="nombreOptNavBar">Cerrar Sesión</span>
-            </div>
+            </div>    
         </div>
     </div>
 
@@ -25,10 +25,12 @@
                 <div id="turnxdia" (click)="cargarCantidadTurnosPorSemana()"><span>Turnos x Día</span></div>
                 <div id="turnxmed" (click)="cargarTurnosPorProfesional()"><span>Turnos x Médico</span></div>
                 <div id="medxdia" (click)="cargarProfesionalesPorDia()"><span>Médico x Días</span></div>
-                <div (click)="descargarExcel()"><span>XLSX</span><span class="material-icons">get_app</span></div>
-                <div (click)="descargarPDF()"><span>PDF</span><span class="material-icons">get_app</span></div>
             </div>
             <div class="graficos" id="graficos"></div>
+            <div class="btn-descarga">
+                <div (click)="descargarExcel()"><span>XLSX</span><span class="material-icons">get_app</span></div>
+                <div (click)="descargarPDF()"><span>PDF</span><span class="material-icons">get_app</span></div>    
+            </div>
         </div>
     </div>
 </div>

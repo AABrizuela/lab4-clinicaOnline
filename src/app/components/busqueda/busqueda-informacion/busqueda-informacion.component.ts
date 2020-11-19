@@ -34,7 +34,7 @@ export class BusquedaInformacionComponent implements OnInit {
       for (let turnito of this.todosLosTurnos) {
         if(turnito.nombrePaciente.toLocaleLowerCase().includes(this.palabra) || turnito.nombreProfesional.toLocaleLowerCase().includes(this.palabra) ||
            turnito.especialidad.toLocaleLowerCase().includes(this.palabra) || turnito.fecha.toLocaleLowerCase().includes(this.palabra) ||
-           turnito.estado.toLocaleLowerCase().includes(this.palabra) || turnito.dia.toLocaleLowerCase().includes(this.palabra) ||
+           turnito.estado.toLocaleLowerCase().includes(this.palabra) || turnito.dia.toLocaleLowerCase().includes(this.palabra) || 
            turnito.horario.toLocaleLowerCase().includes(this.palabra))
           this.turnosAMostrar.push(turnito)
         else{
@@ -44,7 +44,7 @@ export class BusquedaInformacionComponent implements OnInit {
                 this.turnosAMostrar.push(turnito)
                 break;
               }
-            }
+            }  
           }
         }
       }

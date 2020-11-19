@@ -1,0 +1,11 @@
+<div class="fechas">
+  <div class="divEspecialidad">
+    <h2>Selecciona la</h2>
+    <h2>Especialidad</h2>
+    <ul class="semana">
+      <li class="selected" *ngFor="let esp of profesionalSeleccionadoInpt.especialidades"
+          (click)="lanzarEspecialidad(esp)">
+          {{esp}}
+      </li>
+    </ul>
+  </div>
